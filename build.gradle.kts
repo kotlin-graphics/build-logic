@@ -1,6 +1,7 @@
 plugins {
     `kotlin-dsl`
     `maven-publish`
+    `java-gradle-plugin`
 }
 
 group = "com.github.kotlin_graphics"
@@ -11,5 +12,13 @@ repositories.mavenCentral()
 publishing {
     publications.create<MavenPublication>("mavenJava") {
         from(components["java"])
+    }
+}
+
+gradlePlugin {
+    // Define the plugin
+    plugins.creating {
+        id = "kx.kotlin"
+        implementationClass = "upgraded.octo.guacamole.UpgradedOctoGuacamolePlugin"
     }
 }

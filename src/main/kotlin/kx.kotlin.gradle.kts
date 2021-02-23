@@ -1,18 +1,17 @@
 
-plugins {
-    java
-    kotlin("jvm") version "1.4.30"
-    id("com.github.johnrengelman.shadow").version("6.1.0")
-//    id("org.jetbrains.dokka") version "1.4.20"
-//    id("docs")
-}
+plugins { java }
 
 group = "com.github.kotlin_graphics"
 
-repositories.mavenCentral()
+repositories {
+    gradlePluginPortal()
+}
 
 dependencies {
-    implementation(kotlin("stdlib-jdk8"))
+    implementation("org.jetbrains.kotlin.jvm:org.jetbrains.kotlin.jvm.gradle.plugin:1.4.30")
+//    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.4.30")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.30")
+    implementation("com.github.johnrengelman.shadow:com.github.johnrengelman.shadow.gradle.plugin:6.1.0")
 }
 
 java.withSourcesJar()
