@@ -3,6 +3,7 @@ subprojects {
 
     apply(plugin = "java")
     apply(plugin = "maven-publish")
+    apply(plugin = "java-gradle-plugin")
 
     repositories {
         mavenCentral()
@@ -11,7 +12,7 @@ subprojects {
     }
 
     group = "kx.build-logic"
-    version = "0.0.1"
+    version = "0.0.6"
 
     // limited dsl support inside here
     fun Project.publishing(configure: Action<PublishingExtension>): Unit =

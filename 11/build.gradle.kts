@@ -7,3 +7,11 @@ dependencies {
 
     implementation(project(":commons"))
 }
+
+gradlePlugin {
+    // Define the plugin
+    plugins.create("11") {
+        id = "kx.kotlin.11"
+        implementationClass = "sciJava.catalogs.SciJavaCatalogsPlugin"
+    }
+}
