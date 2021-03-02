@@ -11,7 +11,7 @@ plugins {
 
 dependencies {
 
-    implementation(platform("com.github.elect86.platforms:source:fe09de54"))
+    api(platform("com.github.elect86.platforms:source:fe09de54"))
 
     testImplementation(platform("com.github.elect86.platforms:test:fe09de54"))
 
