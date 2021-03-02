@@ -3,25 +3,11 @@ package kx
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    `java-library`
     //    id("com.example.jacoco")
     id("com.github.johnrengelman.shadow")
 }
 
-////group = "com.example.myproduct"
-//
-////java {
-////    sourceCompatibility = JavaVersion.VERSION_1_8
-////    targetCompatibility = JavaVersion.VERSION_1_8
-////}
-
-repositories {
-    mavenCentral()
-    jcenter()
-    //    maven("https://dl.bintray.com/kotlin/dokka")
-    //    maven("https://dl.bintray.com/kotlin/kotlinx/")
-    maven("https://jitpack.io")
-}
+//group = "com.example.myproduct"
 
 dependencies {
 

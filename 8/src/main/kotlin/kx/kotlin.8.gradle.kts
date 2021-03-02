@@ -6,7 +6,6 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     id("kx.kotlin")
-    `java-library`
 }
 
 tasks {
