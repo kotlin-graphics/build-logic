@@ -11,8 +11,9 @@ subprojects {
         gradlePluginPortal()
     }
 
-    group = "kx.build-logic"
-    version = "0.1.5"
+//    group = "kx.build-logic"
+    group = "com.github.elect86.build-logic"
+    version = "0.1.6"
 
     // limited dsl support inside here
     fun Project.publishing(configure: Action<PublishingExtension>): Unit =
