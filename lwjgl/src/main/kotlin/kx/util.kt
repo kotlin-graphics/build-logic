@@ -23,9 +23,11 @@ abstract class LwjglRule : ComponentMetadataRule {
         NativeVariant(OperatingSystemFamily.LINUX, "arm64", "natives-linux-arm64"),
         NativeVariant(OperatingSystemFamily.WINDOWS, "x86", "natives-windows-x86"),
         NativeVariant(OperatingSystemFamily.WINDOWS, "x86-64", "natives-windows"),
-        NativeVariant(OperatingSystemFamily.MACOS, "x86-64", "natives-macos"))
+        NativeVariant(OperatingSystemFamily.MACOS, "x86-64", "natives-macos")
+    )
 
-    @get:Inject abstract val objects: ObjectFactory
+    @get:Inject
+    abstract val objects: ObjectFactory
 
     override fun execute(context: ComponentMetadataContext) {
         context.details.withVariant("runtime") {
@@ -108,25 +110,28 @@ val lwjglNatives = "natives-" + when (current()) {
 }
 
 @JvmName("lwjglImplementation2")
-fun DependencyHandler.lwjglImplementation(modules: Array<LwjglModules>) =
-    lwjglImplementation(*modules)
+fun DependencyHandler.lwjglImplementation(modules: Array<LwjglModules>) = impl(false, modules)
 
-fun DependencyHandler.lwjglImplementation(vararg modules: LwjglModules) {
-    add(false, "", true)
-    for (m in modules)
-        add(false, "-$m", m.hasNative)
-}
+@JvmName("lwjglTestImplementation2")
+fun DependencyHandler.lwjglTestImplementation(modules: Array<LwjglModules>) = impl(true, modules)
 
-fun DependencyHandler.lwjglTestImplementation(modules: List<LwjglModules>) {
-    add(true, "", true)
+fun DependencyHandler.lwjglImplementation(vararg modules: LwjglModules) = impl(false, modules as Array<LwjglModules>)
+fun DependencyHandler.lwjglTestImplementation(vararg modules: LwjglModules) = impl(true, modules as Array<LwjglModules>)
+
+fun DependencyHandler.impl(test: Boolean, modules: Array<LwjglModules>) {
+    // core
+    add(test, "", true)
     for (m in modules)
-        add(true, "-$m", m.hasNative)
+        add(test, "-$m", m.hasNative)
 }
 
 private fun DependencyHandler.add(test: Boolean, module: String, native: Boolean) {
-    add(if (test) "testImplementation" else "implementation", "org.lwjgl:lwjgl$module")
-    if (native)
-        addExternalModuleDependencyTo(
-            this, if (test) "testRuntimeOnly" else "runtimeOnly", "org.lwjgl", "lwjgl",
-            null, null, lwjglNatives, null, null)
+    var config = if (test) "testImplementation" else "implementation"
+    val group = "org.lwjgl"
+    val art = "lwjgl"
+    add(config, "$group:$art$module")
+    if (native) {
+        config = if (test) "testRuntimeOnly" else "runtimeOnly"
+        addExternalModuleDependencyTo(this, config, group, art, null, null, lwjglNatives, null, null)
+    }
 }

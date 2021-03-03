@@ -1,4 +1,9 @@
 
+plugins {
+    java
+    `kotlin-dsl`
+}
+
 dependencies {
 
     implementation(platform("com.github.elect86.platforms:plugin:fe09de54"))
@@ -7,11 +12,3 @@ dependencies {
 
     implementation(project(":commons"))
 }
-
-//gradlePlugin {
-//    // Define the plugin
-//    plugins.create("11") {
-//        id = "kx.kotlin.11"
-//        implementationClass = "kx.kotlin.11"
-//    }
-//}

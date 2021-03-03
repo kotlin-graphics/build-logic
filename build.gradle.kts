@@ -3,16 +3,16 @@ subprojects {
 
     apply(plugin = "java")
     apply(plugin = "maven-publish")
-//    apply(plugin = "java-gradle-plugin")
+//    apply(plugin = "org.gradle.kotlin.kotlin-dsl")
 
     repositories {
+        maven("https://jitpack.io")
         mavenCentral()
         gradlePluginPortal()
-        maven("https://jitpack.io")
     }
 
     group = "kx.build-logic"
-    version = "0.1.0"
+    version = "0.1.5"
 
     // limited dsl support inside here
     fun Project.publishing(configure: Action<PublishingExtension>): Unit =

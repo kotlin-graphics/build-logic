@@ -5,6 +5,7 @@ import org.gradle.kotlin.dsl.`java-library`
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
+//    java
     id("kx.kotlin")
 }
 

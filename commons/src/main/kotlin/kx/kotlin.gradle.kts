@@ -3,6 +3,7 @@ package kx
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
+    java
     //    id("com.example.jacoco")
     id("com.github.johnrengelman.shadow")
 }
@@ -11,7 +12,7 @@ plugins {
 
 dependencies {
 
-    api(platform("com.github.elect86.platforms:source:fe09de54"))
+    implementation(platform("com.github.elect86.platforms:source:fe09de54"))
 
     testImplementation(platform("com.github.elect86.platforms:test:fe09de54"))
 
@@ -33,6 +34,4 @@ tasks {
     withType<Test> { useJUnitPlatform() }
 }
 
-java {
-    withSourcesJar()
-}
+extensions.getByName<JavaPluginExtension>("java").withSourcesJar()
