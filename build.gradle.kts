@@ -13,7 +13,7 @@ subprojects {
 
 //    group = "kx.build-logic"
     group = "com.github.elect86.build-logic"
-    version = "0.1.6"
+    version = "0.1.8"
 
     // limited dsl support inside here
     fun Project.publishing(configure: Action<PublishingExtension>): Unit =

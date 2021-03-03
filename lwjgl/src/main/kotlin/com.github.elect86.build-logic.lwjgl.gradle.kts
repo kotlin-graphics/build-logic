@@ -8,7 +8,7 @@ plugins {
 
 dependencies {
 
-    implementation(platform("kx.platform:source:0.0.1"))
+    implementation(platform("com.github.elect86.platforms:source:fe09de54"))
 }
 
 
