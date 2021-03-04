@@ -4,19 +4,24 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     java
+    kotlin("jvm")
     //    id("com.example.jacoco")
     id("com.github.johnrengelman.shadow")
 }
 
 //group = "com.example.myproduct"
 
+repositories {
+    mavenCentral()
+}
+
 dependencies {
 
-    implementation(platform("com.github.elect86.platforms:source:fe09de54"))
+    implementation(platform("kx.platform:source:0.0.2"))
 
-    testImplementation(platform("com.github.elect86.platforms:test:fe09de54"))
+    testImplementation(platform("kx.platform:test:0.0.2"))
 
-//    implementation(kotlin("stdlib-jdk8")) already on classpath?
+    implementation(kotlin("stdlib-jdk8")) //already on classpath?
 
     //    testImplementation("org.junit.jupiter:junit-jupiter-api")
     //    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")

@@ -8,6 +8,11 @@ plugins {
     id("org.jetbrains.dokka")
 }
 
+repositories {
+    jcenter()
+    maven("https://dl.bintray.com/kotlin/kotlinx")
+}
+
 val jitpack by lazy { System.getenv("JITPACK") == "true" }
 
 tasks {

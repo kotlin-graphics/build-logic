@@ -6,7 +6,7 @@ plugins {
 
 dependencies {
 
-    implementation(platform("com.github.elect86.platforms:plugin:fe09de54"))
+    implementation(platform("kx.platform:plugin:0.0.2"))
 
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin")
     implementation("com.github.johnrengelman.shadow:com.github.johnrengelman.shadow.gradle.plugin")

@@ -20,6 +20,7 @@ pluginManagement {
         mavenLocal()
         gradlePluginPortal()
         maven("https://jitpack.io")
+        maven("https://repo.repsy.io/mvn/elect/kx/")
     }
 }
 
@@ -31,3 +32,4 @@ include("8")
 include("11")
 include("docs")
 include("lwjgl")
+include("jitpack")
