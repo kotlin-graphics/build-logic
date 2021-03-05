@@ -3,7 +3,7 @@ subprojects {
 
     apply(plugin = "java")
     apply(plugin = "maven-publish")
-//    apply(plugin = "org.gradle.kotlin.kotlin-dsl")
+    //    apply(plugin = "org.gradle.kotlin.kotlin-dsl")
 
     repositories {
         maven("https://jitpack.io")
@@ -13,16 +13,12 @@ subprojects {
     }
 
     group = "kx.build-logic"
-    version = "0.2.9"
+    version = "0.4.0"
 
     // limited dsl support inside here
-    fun Project.publishing(configure: Action<PublishingExtension>): Unit =
-        (this as ExtensionAware).extensions.configure("publishing", configure)
+    fun publishing(configure: Action<PublishingExtension>) = extensions.configure("publishing", configure)
 
     publishing {
-        publications.create<MavenPublication>("maven") {
-            from(components["java"])
-        }
         repositories.maven {
             name = "repsy"
             url = uri("https://repo.repsy.io/mvn/elect/kx")

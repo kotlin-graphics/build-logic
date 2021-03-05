@@ -4,10 +4,6 @@ plugins {
     `maven-publish`
 }
 
-repositories {
-    maven("https://jitpack.io")
-}
-
 publishing {
     publications.create<MavenPublication>("mavenJava") {
         from(components["java"])

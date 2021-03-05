@@ -1,11 +1,10 @@
 package kx
 
 import org.gradle.api.attributes.java.TargetJvmVersion.TARGET_JVM_VERSION_ATTRIBUTE
-import org.gradle.kotlin.dsl.`java-library`
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-//    java
+    java
     id("kx.kotlin")
 }
 
@@ -19,8 +18,8 @@ tasks {
     }
 }
 
-// redundant but for
-java.modularity.inferModulePath.set(false)
+// redundant but for symmetry
+extensions.getByName<JavaPluginExtension>("java").modularity.inferModulePath.set(false)
 
 // == Add access to the 'modular' variant of kotlin("stdlib"): Put this into a buildSrc plugin and reuse it in all your subprojects
 configurations.all { attributes.attribute(TARGET_JVM_VERSION_ATTRIBUTE, 8) }

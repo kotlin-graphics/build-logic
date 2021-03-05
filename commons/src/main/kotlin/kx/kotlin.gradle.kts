@@ -17,11 +17,11 @@ repositories {
 
 dependencies {
 
-    implementation(platform("kx.platform:source:0.0.2"))
+    implementation(platform("kx.platform:source:0.0.4"))
 
-    testImplementation(platform("kx.platform:test:0.0.2"))
+    testImplementation(platform("kx.platform:test:0.0.4"))
 
-    implementation(kotlin("stdlib-jdk8")) //already on classpath?
+    implementation(kotlin("stdlib-jdk8"))
 
     //    testImplementation("org.junit.jupiter:junit-jupiter-api")
     //    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
