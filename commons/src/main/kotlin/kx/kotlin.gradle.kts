@@ -4,9 +4,10 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     java
-    kotlin("jvm")
+//    kotlin("jvm")
+    id("org.jetbrains.kotlin.jvm")
     //    id("com.example.jacoco")
-    id("com.github.johnrengelman.shadow")
+//    id("com.github.johnrengelman.shadow")
 }
 
 //group = "com.example.myproduct"
@@ -17,9 +18,9 @@ repositories {
 
 dependencies {
 
-//    implementation(platform("kx.platform:source:0.0.4"))
+    implementation(platform("kx.platform:source:0.0.7"))
 
-    testImplementation(platform("kx.platform:test:0.0.5"))
+    testImplementation(platform("kx.platform:test:0.0.7"))
 
     implementation(kotlin("stdlib-jdk8"))
 

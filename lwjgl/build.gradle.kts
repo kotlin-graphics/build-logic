@@ -6,5 +6,5 @@ plugins {
 
 dependencies {
 
-    implementation(platform("kx.platform:plugin:0.0.5"))
+    implementation(platform("kx.platform:plugin:0.0.7"))
 }
