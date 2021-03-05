@@ -17,9 +17,9 @@ repositories {
 
 dependencies {
 
-    implementation(platform("kx.platform:source:0.0.4"))
+//    implementation(platform("kx.platform:source:0.0.4"))
 
-    testImplementation(platform("kx.platform:test:0.0.4"))
+    testImplementation(platform("kx.platform:test:0.0.5"))
 
     implementation(kotlin("stdlib-jdk8"))
 
