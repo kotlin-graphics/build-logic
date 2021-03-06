@@ -118,7 +118,7 @@ fun DependencyHandler.lwjglTestImplementation(modules: Array<LwjglModules>) = im
 fun DependencyHandler.lwjglImplementation(vararg modules: LwjglModules) = impl(false, modules as Array<LwjglModules>)
 fun DependencyHandler.lwjglTestImplementation(vararg modules: LwjglModules) = impl(true, modules as Array<LwjglModules>)
 
-fun DependencyHandler.impl(test: Boolean, modules: Array<LwjglModules>) {
+private fun DependencyHandler.impl(test: Boolean, modules: Array<LwjglModules>) {
     // core
     add(test, "", true)
     for (m in modules)

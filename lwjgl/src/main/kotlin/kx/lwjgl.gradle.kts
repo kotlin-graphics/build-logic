@@ -1,12 +1,12 @@
 package kx
 
 plugins {
-    java
+    `java-library`
 }
 
 dependencies {
 
-    implementation(platform("kx.platform:source:0.0.7"))
+    implementation(platform("kx.platform:source:0.1.4"))
 }
 
 
