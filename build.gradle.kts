@@ -13,7 +13,7 @@ subprojects {
     }
 
     group = "kx.build-logic"
-    version = "0.5.9"
+    version = "0.6.2"
 
     // limited dsl support inside here
     fun publishing(configure: Action<PublishingExtension>) = extensions.configure("publishing", configure)
