@@ -69,7 +69,8 @@ tasks {
         }
         dependsOn("commit&push")
         finalizedBy(
-            subprojects.map { it.tasks.matching { task -> task.name == "publish" } },
+//            subprojects.map { it.tasks.matching { task -> task.name == "publish" } },
+            getTasksByName("publish", true),
             "commit&pushMary"
         )
     }
