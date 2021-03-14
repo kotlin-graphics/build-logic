@@ -5,10 +5,10 @@ plugins {
     id("kx.publish") version "0.0.9"
 }
 
-val gitDescribe: String
-    get() = ByteArrayOutputStream().also {
-        rootProject.exec { commandLine("git", "describe", "--tags"); standardOutput = it; }
-    }.toString().trim().replace(Regex("-g([a-z0-9]+)$"), "-$1")
+//val gitDescribe: String
+//    get() = ByteArrayOutputStream().also {
+//        rootProject.exec { commandLine("git", "describe", "--tags"); standardOutput = it; }
+//    }.toString().trim().replace(Regex("-g([a-z0-9]+)$"), "-$1")
 
 //println(gitDescribe)
 
@@ -31,7 +31,7 @@ subprojects {
     }
 
     group = "kotlin.graphics.build-logic"
-    version = gitDescribe//"0.7.4"
+    version = "0.7.0 + 24"
     println(version)
 
     // limited dsl support inside here
