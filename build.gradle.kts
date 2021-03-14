@@ -2,7 +2,7 @@ import java.io.ByteArrayOutputStream
 
 
 plugins {
-    id("kx.publish") version "0.0.7"
+    id("kx.publish") version "0.0.8"
 }
 
 val gitDescribe: String
@@ -10,7 +10,7 @@ val gitDescribe: String
         rootProject.exec { commandLine("git", "describe", "--tags"); standardOutput = it; }
     }.toString().trim().replace(Regex("-g([a-z0-9]+)$"), "-$1")
 
-println(gitDescribe)
+//println(gitDescribe)
 
 subprojects {
 
