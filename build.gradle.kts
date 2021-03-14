@@ -1,7 +1,11 @@
 
 plugins {
-    id("kx.publish") version "0.0.3"
+    id("kx.publish") version "0.0.4"
 }
+
+//repositories {
+//    mavenCentral()
+//}
 
 subprojects {
 
@@ -17,7 +21,7 @@ subprojects {
     repositories {
         mavenCentral()
         gradlePluginPortal()
-        maven("https://repo.repsy.io/mvn/elect/kx/")
+//        maven("https://repo.repsy.io/mvn/elect/kx/")
         maven("https://raw.githubusercontent.com/elect86/mary/master")
     }
 

@@ -12,7 +12,7 @@ plugins {
 
 repositories {
     maven("https://raw.githubusercontent.com/elect86/mary/master")
-    maven("https://repo.repsy.io/mvn/elect/kx")
+//    maven("https://repo.repsy.io/mvn/elect/kx")
 }
 
 group = "kotlin.graphics"
