@@ -10,7 +10,8 @@ pluginManagement {
     repositories {
 //        mavenLocal()
         gradlePluginPortal()
-        maven("https://repo.repsy.io/mvn/elect/kx/")
+//        maven("https://repo.repsy.io/mvn/elect/kx/")
+        maven("https://raw.githubusercontent.com/elect86/mary/master")
     }
 }
 
