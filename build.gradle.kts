@@ -1,4 +1,14 @@
 
+val gitDescribe: String
+    get() {
+        val stdout = java.io.ByteArrayOutputStream()
+        rootProject.exec {
+            commandLine("git", "describe", "--tags")
+            standardOutput = stdout
+        }
+        return stdout.toString().trim().replace(Regex("-g([a-z0-9]+)$"), "-$1")
+    }
+
 subprojects {
 
     apply(
@@ -18,7 +28,7 @@ subprojects {
     }
 
     group = "kotlin.graphics.build-logic"
-    version = "0.7.0"
+    version = gitDescribe//"0.7.0"
 
     // limited dsl support inside here
     fun publishing(configure: Action<PublishingExtension>) = extensions.configure("publishing", configure)
@@ -30,15 +40,7 @@ subprojects {
     }
 }
 
-val gitDescribe: String
-    get() {
-        val stdout = java.io.ByteArrayOutputStream()
-        rootProject.exec {
-            commandLine("git", "describe", "--tags")
-            standardOutput = stdout
-        }
-        return stdout.toString().trim().replace(Regex("-g([a-z0-9]+)$"), "-$1")
-    }
+
 
 
 tasks {
