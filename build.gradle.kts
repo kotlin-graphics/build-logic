@@ -25,10 +25,7 @@ subprojects {
 
     publishing {
         repositories.maven {
-            url = uri("https://raw.githubusercontent.com/elect86/mary/master")
-            //            name = "repsy"
-            //            url = uri("https://repo.repsy.io/mvn/elect/kx")
-            //            credentials(PasswordCredentials::class)
+            url = uri("$rootDir/../mary")
         }
     }
 }
