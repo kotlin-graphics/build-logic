@@ -9,7 +9,6 @@ val gitDescribe: String
     get() = ByteArrayOutputStream().also {
         rootProject.exec { commandLine("git", "describe", "--tags"); standardOutput = it; }
     }.toString().trim().replace(Regex("-g([a-z0-9]+)$"), "-$1")
-
 //println(gitDescribe)
 
 subprojects {
