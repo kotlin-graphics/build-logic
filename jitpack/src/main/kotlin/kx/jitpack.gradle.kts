@@ -1,3 +1,5 @@
+package kx
+
 import org.gradle.kotlin.dsl.`maven-publish`
 
 plugins {
@@ -5,7 +7,7 @@ plugins {
 }
 
 publishing {
-    publications.create<MavenPublication>("mavenJava") {
+    publications.create<MavenPublication>("maven") {
         from(components["java"])
     }
 }

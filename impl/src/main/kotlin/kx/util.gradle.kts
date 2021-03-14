@@ -1,9 +1,7 @@
-package kx.kx
+package kx
 
 plugins {
     `java-library`
 }
 
-repositories {
-    maven("https://repo.repsy.io/mvn/elect/kx")
-}
+// dummy

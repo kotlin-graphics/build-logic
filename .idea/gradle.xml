@@ -16,6 +16,9 @@
             <option value="$PROJECT_DIR$/docs" />
             <option value="$PROJECT_DIR$/impl" />
             <option value="$PROJECT_DIR$/lwjgl" />
+            <option value="$PROJECT_DIR$/platform-plugin" />
+            <option value="$PROJECT_DIR$/platform-source" />
+            <option value="$PROJECT_DIR$/platform-test" />
           </set>
         </option>
       </GradleProjectSettings>

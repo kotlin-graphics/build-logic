@@ -128,8 +128,8 @@ private fun DependencyHandler.impl(test: Boolean, modules: Array<LwjglModules>) 
 private fun DependencyHandler.add(test: Boolean, module: String, native: Boolean) {
     var config = if (test) "testImplementation" else "implementation"
     val group = "org.lwjgl"
-    val art = "lwjgl"
-    add(config, "$group:$art$module")
+    val art = "lwjgl$module"
+    add(config, "$group:$art")
     if (native) {
         config = if (test) "testRuntimeOnly" else "runtimeOnly"
         addExternalModuleDependencyTo(this, config, group, art, null, null, lwjglNatives, null, null)

@@ -7,20 +7,21 @@ plugins {
 //    kotlin("jvm")
     id("org.jetbrains.kotlin.jvm")
     //    id("com.example.jacoco")
-//    id("com.github.johnrengelman.shadow")
+    id("com.github.johnrengelman.shadow")
 }
 
-//group = "com.example.myproduct"
+group = "kotlin.graphics"
 
 repositories {
-    mavenCentral()
+    maven("https://raw.githubusercontent.com/elect86/mary/master")
+    maven("https://repo.repsy.io/mvn/elect/kx")
 }
 
 dependencies {
 
-    implementation(platform("kx.platform:source:0.1.7"))
+    implementation(platform(project(":platform-source")))
 
-    testImplementation(platform("kx.platform:test:0.1.7"))
+    testImplementation(platform(project(":platform-test")))
 
     implementation(kotlin("stdlib-jdk8"))
 

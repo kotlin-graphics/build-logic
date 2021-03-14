@@ -7,7 +7,7 @@ import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.kotlin.dsl.accessors.runtime.addDependencyTo
 
 enum class KxProject {
-    kool, unsigned, glm, gli, vkk, uno, imgui, assimp, openvr;
+    kool, unsigned, glm, gli, gln, vkk, uno, imgui, assimp, openvr;
 
     val projectName
         get() = when (this) {

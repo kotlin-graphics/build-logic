@@ -1,17 +1,16 @@
 
-dependencyResolutionManagement {
-    repositories {
-        gradlePluginPortal()
-        google()
-    }
-}
+//dependencyResolutionManagement {
+//    repositories {
+//        gradlePluginPortal()
+////        google()
+//    }
+//}
 
 pluginManagement {
     repositories {
-        mavenLocal()
+//        mavenLocal()
         gradlePluginPortal()
-        maven("https://jitpack.io")
-//        maven("https://repo.repsy.io/mvn/elect/kx/")
+        maven("https://repo.repsy.io/mvn/elect/kx/")
     }
 }
 
@@ -25,3 +24,6 @@ include("docs")
 include("lwjgl")
 //include("jitpack")
 include("impl")
+include("platform-plugin")
+include("platform-source")
+include("platform-test")
