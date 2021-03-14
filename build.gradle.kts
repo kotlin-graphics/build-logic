@@ -1,11 +1,14 @@
+import java.io.ByteArrayOutputStream
+
 
 plugins {
-    id("kx.publish") version "0.0.5"
+    id("kx.publish") version "0.0.6"
 }
 
-//repositories {
-//    mavenCentral()
-//}
+val gitDescribe: String
+    get() = ByteArrayOutputStream().also {
+        rootProject.exec { commandLine("git", "describe", "--tags"); standardOutput = it; }
+    }.toString().trim().replace(Regex("-g([a-z0-9]+)$"), "-$1")
 
 subprojects {
 
@@ -21,12 +24,12 @@ subprojects {
     repositories {
         mavenCentral()
         gradlePluginPortal()
-//        maven("https://repo.repsy.io/mvn/elect/kx/")
+        //        maven("https://repo.repsy.io/mvn/elect/kx/")
         maven("https://raw.githubusercontent.com/elect86/mary/master")
     }
 
     group = "kotlin.graphics.build-logic"
-    version = "0.7.4"
+    version = gitDescribe//"0.7.4"
 
     // limited dsl support inside here
     fun publishing(configure: Action<PublishingExtension>) = extensions.configure("publishing", configure)
