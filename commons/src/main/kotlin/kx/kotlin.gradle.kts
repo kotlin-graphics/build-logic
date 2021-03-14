@@ -20,7 +20,7 @@ group = "kotlin.graphics"
 dependencies {
 
     val g = "kotlin.graphics.build-logic"
-    val v = "0.7.0 + 24"
+    val v = "0.7.0+25"
     implementation(platform("$g:platform-source:$v"))
 
     testImplementation(platform("$g:platform-test:$v"))

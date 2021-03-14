@@ -31,7 +31,7 @@ subprojects {
     }
 
     group = "kotlin.graphics.build-logic"
-    version = "0.7.0 + 24"
+    version = "0.7.0+25"
     println(version)
 
     // limited dsl support inside here

@@ -6,7 +6,7 @@ plugins {
 
 dependencies {
 
-    implementation(platform("kotlin.graphics.build-logic:platform-source:0.7.0 + 24"))
+    implementation(platform("kotlin.graphics.build-logic:platform-source:0.7.0+25"))
 }
 
 
