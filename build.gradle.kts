@@ -1,6 +1,6 @@
 
 plugins {
-    id("kx.publish") version "0.0.4"
+    id("kx.publish") version "0.0.5"
 }
 
 //repositories {
