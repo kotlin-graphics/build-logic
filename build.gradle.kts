@@ -40,7 +40,13 @@ subprojects {
     publishing {
         if (platform)
             publications.create<MavenPublication>("maven") {
+                version = gitDescribe
                 from(components["javaPlatform"])
+            }
+        else
+            publications.create<MavenPublication>("maven") {
+                version = gitDescribe
+                from(components["java"])
             }
         repositories.maven {
             url = uri("$rootDir/../mary")
