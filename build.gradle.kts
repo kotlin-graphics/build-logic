@@ -28,7 +28,7 @@ subprojects {
     }
 
     group = "kotlin.graphics.build-logic"
-    version = "0.7.0"
+    version = gitDescribe//"0.7.0"
 
     // limited dsl support inside here
     fun publishing(configure: Action<PublishingExtension>) = extensions.configure("publishing", configure)
