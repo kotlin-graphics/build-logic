@@ -40,6 +40,7 @@ val gitDescribe: String
         return stdout.toString().trim().replace(Regex("-g([a-z0-9]+)$"), "-$1")
     }
 
+
 tasks {
     register("commit&push") {
         group = "kx"
