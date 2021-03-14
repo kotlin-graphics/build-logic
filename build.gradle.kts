@@ -10,7 +10,7 @@ val gitDescribe: String
         rootProject.exec { commandLine("git", "describe", "--tags"); standardOutput = it; }
     }.toString().trim().replace(Regex("-g([a-z0-9]+)$"), "-$1")
 
-println(gitDescribe)
+//println(gitDescribe)
 
 subprojects {
 
@@ -32,6 +32,7 @@ subprojects {
 
     group = "kotlin.graphics.build-logic"
     version = gitDescribe//"0.7.4"
+    println(version)
 
     // limited dsl support inside here
     fun publishing(configure: Action<PublishingExtension>) = extensions.configure("publishing", configure)
