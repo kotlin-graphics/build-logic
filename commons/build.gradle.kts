@@ -11,5 +11,5 @@ dependencies {
     implementation("org.jetbrains.kotlin.jvm:org.jetbrains.kotlin.jvm.gradle.plugin")
     implementation("com.github.johnrengelman.shadow:com.github.johnrengelman.shadow.gradle.plugin")
 
-    implementation(project(":impl"))
+    implementation(project(":kx"))
 }

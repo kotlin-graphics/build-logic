@@ -10,18 +10,20 @@ plugins {
     id("com.github.johnrengelman.shadow")
 }
 
-group = "kotlin.graphics"
-
 repositories {
     maven("https://raw.githubusercontent.com/elect86/mary/master")
     maven("https://repo.repsy.io/mvn/elect/kx")
 }
 
+group = "kotlin.graphics"
+
 dependencies {
 
-    implementation(platform(project(":platform-source")))
+    val g = "kotlin.graphics.build-logic"
+    val v = "0.7.3.8"
+    implementation(platform("$g:platform-source:$v"))
 
-    testImplementation(platform(project(":platform-test")))
+    testImplementation(platform("$g:platform-test:$v"))
 
     implementation(kotlin("stdlib-jdk8"))
 
