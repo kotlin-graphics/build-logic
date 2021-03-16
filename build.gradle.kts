@@ -1,8 +1,7 @@
-import java.io.ByteArrayOutputStream
-
+//import java.io.ByteArrayOutputStream
 
 plugins {
-    id("kx.publish") version "0.1.0"
+    id("kx.publish") version "0.1.2"
 }
 
 //val gitDescribe: String
@@ -31,8 +30,7 @@ subprojects {
     }
 
     group = "kotlin.graphics.build-logic"
-    version = "0.7.0+26"
-//    println(version)
+    version = "0.7.0+27"
 
     // limited dsl support inside here
     fun publishing(configure: Action<PublishingExtension>) = extensions.configure("publishing", configure)
