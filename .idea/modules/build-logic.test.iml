@@ -8,4 +8,5 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="build-logic.main" />
   </component>
+  <component name="TestModuleProperties" production-module="build-logic.main" />
 </module>

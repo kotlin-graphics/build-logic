@@ -1,7 +1,7 @@
 //import java.io.ByteArrayOutputStream
 
 plugins {
-    id("kx.publish") version "0.1.2"
+    id("kx.publish") version "0.1.5" apply false
 }
 
 //val gitDescribe: String
@@ -15,11 +15,12 @@ subprojects {
 
     val platform = name.startsWith("platform")
 
-    apply(plugin = when {
-        platform -> "java-platform"
-        else -> "java"
-    })
-    apply(plugin = "maven-publish")
+    if(platform) {
+        apply(plugin = "java-platform")
+        apply(plugin = "maven-publish")
+    }
+    else
+        apply(plugin = "kx.publish")
     //    apply(plugin = "org.gradle.kotlin.kotlin-dsl")
 
     repositories {
@@ -30,19 +31,16 @@ subprojects {
     }
 
     group = "kotlin.graphics.build-logic"
-    version = "0.7.0+27"
+    version = "0.7.0+28"
 
+    if (platform)
     // limited dsl support inside here
-    fun publishing(configure: Action<PublishingExtension>) = extensions.configure("publishing", configure)
-
-    publishing {
-        if (platform)
+        extensions.configure<PublishingExtension>("publishing") {
             publications.create<MavenPublication>("maven") {
                 from(components["javaPlatform"])
             }
-        repositories.maven {
-            url = uri("$rootDir/../mary")
-            //            url = uri("../mary")
+            repositories.maven {
+                url = uri("$rootDir/../mary")
+            }
         }
-    }
 }
