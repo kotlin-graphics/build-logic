@@ -5,7 +5,7 @@
 dependencies {
     //    api(platform("org.junit:junit-bom:5.7.0"))
     constraints {
-        api("io.kotest:kotest-runner-junit5:4.4.1")
-        api("io.kotest:kotest-assertions-core:4.4.1")
+        "api"("io.kotest:kotest-runner-junit5:4.4.1")
+        "api"("io.kotest:kotest-assertions-core:4.4.1")
     }
 }
