@@ -72,6 +72,7 @@ tasks {
 
 fun bump() {
     val text = buildFile.readText()
+    println(text)
     val ofs = text.indexOf("version")
     val start = text.indexOf('"', startIndex = ofs) + 1
     val end = text.indexOf('"', startIndex = start)
