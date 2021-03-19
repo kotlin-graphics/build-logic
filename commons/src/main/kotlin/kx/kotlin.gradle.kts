@@ -11,7 +11,7 @@ plugins {
 }
 
 repositories {
-    maven("https://raw.githubusercontent.com/elect86/mary/master")
+    maven("https://raw.githubusercontent.com/kotlin-graphics/mary/master")
 //    maven("https://repo.repsy.io/mvn/elect/kx")
 }
 
