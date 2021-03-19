@@ -2,8 +2,12 @@ package kx
 
 import java.io.ByteArrayOutputStream
 
+plugins {
+    `maven-publish`
+}
+
 // limited dsl support inside here
-extensions.configure<PublishingExtension>("publishing")  {
+publishing  {
     publications.create<MavenPublication>("maven") {
         from(components["java"])
     }
