@@ -2,8 +2,8 @@ package kx
 
 import java.io.ByteArrayOutputStream
 
-publishing {
-    // default in java-library
+// limited dsl support inside here
+extensions.configure<PublishingExtension>("publishing")  {
     publications.create<MavenPublication>("maven") {
         from(components["java"])
     }
@@ -23,9 +23,10 @@ val gitDescribe: String
     }.toString().trim().replace(Regex("-g([a-z0-9]+)$"), "-$1")
 
 tasks {
-    register("1)commit&push") {
-        group = "kx"
+    register("1)bump,commit,push") {
+        group = "kx-dev"
         doLast {
+            bump()
             rootProject.exec { commandLine("git", "add", ".") }
             var message = gitDescribe.substringBeforeLast('-')
             val commits = message.substringAfterLast('-').toInt() + 1
@@ -35,12 +36,12 @@ tasks {
         }
     }
     register("2)publish") {
-        group = "kx"
+        group = "kx-dev"
 //        dependsOn("commit&push") not reliable
         finalizedBy(getTasksByName("publish", true))
     }
-    register("3)commit&pushMary") {
-        group = "kx"
+    register("3)[mary]commit,push") {
+        group = "kx-dev"
         doLast {
             val maryDir = file("$rootDir/../mary")
             rootProject.exec {
@@ -62,4 +63,17 @@ tasks {
         }
 //        mustRunAfter("publishSnapshot") // order
     }
+}
+
+fun bump() {
+    val text = buildFile.readText()
+    val ofs = text.indexOf("version")
+    val start = text.indexOf('"', startIndex = ofs) + 1
+    val end = text.indexOf('"', startIndex = start)
+    val version = text.substring(start, end)
+    val plus = version.indexOf('+')
+    buildFile.writeText(text.replace(version, when {
+        plus != -1 -> version.split('+').let { "${it[0]}+%02d".format(it[1].toInt() + 1) }
+        else -> "$version+01"
+    }))
 }
