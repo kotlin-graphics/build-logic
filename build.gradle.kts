@@ -7,7 +7,7 @@ plugins {
 subprojects {
 
     group = "kotlin.graphics.build-logic"
-    version = "0.7.0+33"
+    version = "0.7.0+34"
 
     val platform = name.startsWith("platform")
 

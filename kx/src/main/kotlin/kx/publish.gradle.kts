@@ -10,6 +10,7 @@ plugins {
 publishing  {
     publications.create<MavenPublication>("maven") {
         from(components["java"])
+        suppressPomMetadataWarningsFor("runtimeElements")
     }
     repositories {
         maven {
