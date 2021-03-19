@@ -74,10 +74,15 @@ fun bump() {
     val text = buildFile.readText()
     println(text)
     val ofs = text.indexOf("version")
+    println(ofs)
     val start = text.indexOf('"', startIndex = ofs) + 1
+    println(start)
     val end = text.indexOf('"', startIndex = start)
+    println(end)
     val version = text.substring(start, end)
+    println(version)
     val plus = version.indexOf('+')
+    println(plus)
     buildFile.writeText(text.replace(version, when {
         plus != -1 -> version.split('+').let { "${it[0]}+%02d".format(it[1].toInt() + 1) }
         else -> "$version+01"
