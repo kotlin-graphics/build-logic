@@ -77,7 +77,7 @@ fun bump() {
     buildFile.writeText(text.replace(version, when {
         plus != -1 -> {
             val (tag, delta) = version.split('+')
-            "$$tag+%02d".format(delta.toInt() + 1)
+            "$tag+%02d".format(delta.toInt() + 1)
         }
         else -> "$version+01"
     }))

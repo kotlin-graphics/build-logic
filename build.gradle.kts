@@ -4,7 +4,7 @@ plugins {
     `kotlin-dsl` apply false
 }
 
-version = "$0.7.0+39" // for ::bump
+version = "0.7.0+40" // for ::bump
 
 subprojects {
 
@@ -96,7 +96,7 @@ fun bump() {
     buildFile.writeText(text.replace(version, when {
         plus != -1 -> {
             val (tag, delta) = version.split('+')
-            "$$tag+%02d".format(delta.toInt() + 1)
+            "$tag+%02d".format(delta.toInt() + 1)
         }
         else -> "$version+01"
     }))
