@@ -4,10 +4,12 @@ plugins {
     `kotlin-dsl` apply false
 }
 
+version = "$0.7.0+38" // for ::bump
+
 subprojects {
 
     group = "kotlin.graphics.build-logic"
-    version = "0.7.0+36"
+    version = rootProject.version
 
     val platform = name.startsWith("platform")
 
@@ -84,6 +86,8 @@ tasks {
         //        mustRunAfter("publishSnapshot") // order
     }
 }
+
+println(subprojects.forEach { println(it.name + ", " + it.version) })
 
 fun bump() {
     val text = buildFile.readText()
