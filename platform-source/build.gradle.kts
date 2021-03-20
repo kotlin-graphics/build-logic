@@ -13,8 +13,8 @@ dependencies {
         val kx = "kotlin.graphics"
 //        listOf()
 
-        "api"("$kx:unsigned:51d8dfea")
-        "api"("$kx:kool:95bcdc4d")
+        "api"("$kx:unsigned:3.2.9+21")
+        "api"("$kx:kool:0.9.0+17")
         "api"("$kx:glm:8dae70c1")
         "api"("$kx:gli:12cd3342")
         "api"("$kx:gln:9eae85c8")
