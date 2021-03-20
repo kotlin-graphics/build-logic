@@ -4,7 +4,7 @@ plugins {
     `kotlin-dsl` apply false
 }
 
-version = "0.7.0+41" // for ::bump
+version = "0.7.0+42" // for ::bump
 
 subprojects {
 
@@ -86,8 +86,6 @@ tasks {
         //        mustRunAfter("publishSnapshot") // order
     }
 }
-
-println(subprojects.forEach { println(it.name + ", " + it.version) })
 
 fun bump() {
     val text = buildFile.readText()
