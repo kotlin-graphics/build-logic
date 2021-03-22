@@ -1,5 +1,6 @@
 package kx
 
+import gradle.kotlin.dsl.accessors._81a9ffeaac5f36ea3b3c2e202a0b117a.ext
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -17,9 +18,10 @@ repositories {
 
 group = "kotlin.graphics"
 
+val platformVersion by extra("platformVersion")
+
 dependencies {
 
-    val platformVersion = rootProject.extra["platformVersion"]
     implementation(platform("kotlin.graphics.platform:source:$platformVersion"))
 
     testImplementation(platform("kotlin.graphics.platform:test:$platformVersion"))
