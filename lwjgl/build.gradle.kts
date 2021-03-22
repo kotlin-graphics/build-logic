@@ -1,5 +1,6 @@
 
 dependencies {
 
-    "implementation"(platform(project(":platform-plugin")))
+    val platformVersion = rootProject.extra["platformVersion"]
+    "implementation"(platform("kotlin.graphics.platform:plugin:$platformVersion"))
 }

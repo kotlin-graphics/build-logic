@@ -4,7 +4,8 @@ plugins {
     `kotlin-dsl` apply false
 }
 
-version = "0.7.0+42" // for ::bump
+version = "0.7.0+43" // for ::bump
+extra["platformVersion"] = "0.2.8+25"
 
 subprojects {
 

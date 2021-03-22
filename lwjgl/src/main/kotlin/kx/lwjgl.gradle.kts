@@ -6,7 +6,8 @@ plugins {
 
 dependencies {
 
-    implementation(platform("kotlin.graphics.build-logic:platform-source:0.7.0+26"))
+    val platformVersion = rootProject.extra["platformVersion"]
+    implementation(platform("kotlin.graphics.platform:source:$platformVersion"))
 }
 
 

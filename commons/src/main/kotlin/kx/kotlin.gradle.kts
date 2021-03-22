@@ -19,11 +19,10 @@ group = "kotlin.graphics"
 
 dependencies {
 
-    val g = "kotlin.graphics.build-logic"
-    val v = "0.7.0+26"
-    implementation(platform("$g:platform-source:$v"))
+    val platformVersion = rootProject.extra["platformVersion"]
+    implementation(platform("kotlin.graphics.platform:source:$platformVersion"))
 
-    testImplementation(platform("$g:platform-test:$v"))
+    testImplementation(platform("kotlin.graphics.platform:test:$platformVersion"))
 
     implementation(kotlin("stdlib-jdk8"))
 
