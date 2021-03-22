@@ -19,7 +19,7 @@ group = "kotlin.graphics"
 
 dependencies {
 
-    val platformVersion: String by project
+    val platformVersion = project.findProperty("platformVersion") ?: "0.2.8+25"
     implementation(platform("kotlin.graphics.platform:source:$platformVersion"))
 
     testImplementation(platform("kotlin.graphics.platform:test:$platformVersion"))
