@@ -18,6 +18,7 @@ repositories {
 group = "kotlin.graphics"
 
 val platformVersion by extra("platformVersion")
+println(extra.properties)
 
 dependencies {
 
