@@ -31,7 +31,7 @@ abstract class LwjglRule : ComponentMetadataRule {
 
     override fun execute(context: ComponentMetadataContext) {
         context.details.withVariant("runtime") {
-            println(this)
+//            println(this)
             attributes {
                 attribute(OperatingSystemFamily.OPERATING_SYSTEM_ATTRIBUTE, objects.named("none"))
                 attribute(MachineArchitecture.ARCHITECTURE_ATTRIBUTE, objects.named("none"))
