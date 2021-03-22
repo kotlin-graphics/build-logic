@@ -4,6 +4,10 @@ plugins {
     `java-library`
 }
 
+repositories {
+    maven("https://raw.githubusercontent.com/kotlin-graphics/mary/master")
+}
+
 dependencies {
 
     val platformVersion = when {

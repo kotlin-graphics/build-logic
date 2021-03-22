@@ -12,7 +12,6 @@ plugins {
 
 repositories {
     maven("https://raw.githubusercontent.com/kotlin-graphics/mary/master")
-//    maven("https://repo.repsy.io/mvn/elect/kx")
 }
 
 group = "kotlin.graphics"
