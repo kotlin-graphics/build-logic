@@ -4,7 +4,7 @@ plugins {
     `kotlin-dsl` apply false
 }
 
-version = "0.7.0+43" // for ::bump
+version = "0.7.0+44" // for ::bump
 extra["platformVersion"] = "0.2.8+25"
 
 subprojects {
@@ -12,14 +12,8 @@ subprojects {
     group = "kotlin.graphics.build-logic"
     version = rootProject.version
 
-    val platform = name.startsWith("platform")
-
-    if (platform)
-        apply(plugin = "java-platform")
-    else {
-        apply(plugin = "org.gradle.kotlin.kotlin-dsl")
-        apply(plugin = "java-library")
-    }
+    apply(plugin = "org.gradle.kotlin.kotlin-dsl")
+    apply(plugin = "java-library")
     apply(plugin = "maven-publish")
 
     repositories {
@@ -31,10 +25,6 @@ subprojects {
 
     // limited dsl support inside here
     extensions.configure<PublishingExtension>("publishing") {
-        if (platform)
-            publications.create<MavenPublication>("maven") {
-                from(components["javaPlatform"])
-            }
         repositories.maven {
             url = uri("$rootDir/../mary")
         }

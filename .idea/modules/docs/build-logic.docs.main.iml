@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.system.module.type="sourceSet" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <output url="file://$MODULE_DIR$/../../../docs/build/classes/java/main" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../docs/build/generated-sources/kotlin-dsl-accessors/kotlin">
+      <sourceFolder url="file://$MODULE_DIR$/../../../docs/build/generated-sources/kotlin-dsl-accessors/kotlin" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../docs/build/generated-sources/kotlin-dsl-external-plugin-spec-builders/kotlin">
+      <sourceFolder url="file://$MODULE_DIR$/../../../docs/build/generated-sources/kotlin-dsl-external-plugin-spec-builders/kotlin" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../docs/build/generated-sources/kotlin-dsl-plugins/kotlin">
+      <sourceFolder url="file://$MODULE_DIR$/../../../docs/build/generated-sources/kotlin-dsl-plugins/kotlin" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../docs/src/main">
+      <sourceFolder url="file://$MODULE_DIR$/../../../docs/src/main/kotlin" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/caches/7.0-milestone-3/generated-gradle-jars/gradle-api-7.0-milestone-3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-7.0-milestone-3-bin/ampssuvp9jk0l5it4h3f6umg2/gradle-7.0-milestone-3/lib/groovy-3.0.7.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-7.0-milestone-3-bin/ampssuvp9jk0l5it4h3f6umg2/gradle-7.0-milestone-3/lib/groovy-ant-3.0.7.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-7.0-milestone-3-bin/ampssuvp9jk0l5it4h3f6umg2/gradle-7.0-milestone-3/lib/groovy-astbuilder-3.0.7.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-7.0-milestone-3-bin/ampssuvp9jk0l5it4h3f6umg2/gradle-7.0-milestone-3/lib/groovy-console-3.0.7.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-7.0-milestone-3-bin/ampssuvp9jk0l5it4h3f6umg2/gradle-7.0-milestone-3/lib/groovy-datetime-3.0.7.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-7.0-milestone-3-bin/ampssuvp9jk0l5it4h3f6umg2/gradle-7.0-milestone-3/lib/groovy-dateutil-3.0.7.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-7.0-milestone-3-bin/ampssuvp9jk0l5it4h3f6umg2/gradle-7.0-milestone-3/lib/groovy-groovydoc-3.0.7.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-7.0-milestone-3-bin/ampssuvp9jk0l5it4h3f6umg2/gradle-7.0-milestone-3/lib/groovy-json-3.0.7.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-7.0-milestone-3-bin/ampssuvp9jk0l5it4h3f6umg2/gradle-7.0-milestone-3/lib/groovy-nio-3.0.7.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-7.0-milestone-3-bin/ampssuvp9jk0l5it4h3f6umg2/gradle-7.0-milestone-3/lib/groovy-sql-3.0.7.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-7.0-milestone-3-bin/ampssuvp9jk0l5it4h3f6umg2/gradle-7.0-milestone-3/lib/groovy-templates-3.0.7.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-7.0-milestone-3-bin/ampssuvp9jk0l5it4h3f6umg2/gradle-7.0-milestone-3/lib/groovy-test-3.0.7.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-7.0-milestone-3-bin/ampssuvp9jk0l5it4h3f6umg2/gradle-7.0-milestone-3/lib/groovy-xml-3.0.7.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-7.0-milestone-3-bin/ampssuvp9jk0l5it4h3f6umg2/gradle-7.0-milestone-3/lib/javaparser-core-3.17.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-7.0-milestone-3-bin/ampssuvp9jk0l5it4h3f6umg2/gradle-7.0-milestone-3/lib/kotlin-stdlib-1.4.31.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-7.0-milestone-3-bin/ampssuvp9jk0l5it4h3f6umg2/gradle-7.0-milestone-3/lib/kotlin-stdlib-common-1.4.31.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-7.0-milestone-3-bin/ampssuvp9jk0l5it4h3f6umg2/gradle-7.0-milestone-3/lib/kotlin-stdlib-jdk7-1.4.31.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-7.0-milestone-3-bin/ampssuvp9jk0l5it4h3f6umg2/gradle-7.0-milestone-3/lib/kotlin-stdlib-jdk8-1.4.31.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-7.0-milestone-3-bin/ampssuvp9jk0l5it4h3f6umg2/gradle-7.0-milestone-3/lib/kotlin-reflect-1.4.31.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-7.0-milestone-3-bin/ampssuvp9jk0l5it4h3f6umg2/gradle-7.0-milestone-3/lib/gradle-installation-beacon-7.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/caches/7.0-milestone-3/generated-gradle-jars/gradle-kotlin-dsl-extensions-7.0-milestone-3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-7.0-milestone-3-bin/ampssuvp9jk0l5it4h3f6umg2/gradle-7.0-milestone-3/lib/gradle-kotlin-dsl-7.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-7.0-milestone-3-bin/ampssuvp9jk0l5it4h3f6umg2/gradle-7.0-milestone-3/lib/gradle-kotlin-dsl-tooling-models-7.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="Gradle: org.jetbrains.dokka:dokka-gradle-plugin:1.4.20" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.dokka:dokka-core:1.4.20" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.31" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.jetbrains.kotlin:kotlin-reflect:1.4.31" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains:markdown:0.1.45" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.4.31" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.4.31" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.4.31" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains:annotations:13.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.20" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.fasterxml.jackson.module:jackson-module-kotlin:2.11.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.jetbrains.kotlin:kotlin-reflect:1.4.20" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.jsoup:jsoup:1.12.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.11.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.4.20" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.4.20" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.11.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.11.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.11.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.11.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.fasterxml.woodstox:woodstox-core:6.2.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.codehaus.woodstox:stax2-api:4.2.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.4.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.4.20" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: jakarta.xml.bind:jakarta.xml.bind-api:2.3.2" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: jakarta.activation:jakarta.activation-api:1.2.1" level="project" />
+  </component>
+</module>
