@@ -17,13 +17,9 @@ repositories {
 
 group = "kotlin.graphics"
 
-val platformVersion by extra {"platformVersion" }
-println("extra.properties")
-println(extra)
-println(extra.properties)
-
 dependencies {
 
+    val platformVersion by extra {"platformVersion" }
     implementation(platform("kotlin.graphics.platform:source:$platformVersion"))
 
     testImplementation(platform("kotlin.graphics.platform:test:$platformVersion"))
