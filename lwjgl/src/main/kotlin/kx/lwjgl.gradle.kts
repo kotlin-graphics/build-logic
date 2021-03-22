@@ -6,6 +6,7 @@ plugins {
 
 dependencies {
 
+    println("project.hasProperty(platformVersion)=${project.hasProperty("platformVersion")}")
     val platformVersion = when {
         project.hasProperty("platformVersion") -> project.property("platformVersion")
         else -> "0.2.8+25"
