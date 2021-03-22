@@ -6,7 +6,7 @@ plugins {
 
 dependencies {
 
-    val platformVersion by extra {"platformVersion" }
+    val platformVersion by rootProject.extra {"platformVersion" }
     implementation(platform("kotlin.graphics.platform:source:$platformVersion"))
 }
 
