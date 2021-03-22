@@ -11,7 +11,6 @@ enum class KxProject {
 
     val projectName
         get() = when (this) {
-            unsigned -> "kotlin-unsigned"
             uno -> "uno-sdk"
             else -> name
         }
@@ -37,7 +36,7 @@ fun DependencyHandler.kxTestImplementation(vararg projects: KxProject) = add(tru
 
 private fun DependencyHandler.add(test: Boolean, projects: Array<KxProject>) {
     for (p in projects) {
-        val group = "com.github.kotlin-graphics"
+        val group = "kotlin.graphics"
         val art = p.projectName
         if (test)
             testImpl("$group:$art") { exclude("kx.platform") }
