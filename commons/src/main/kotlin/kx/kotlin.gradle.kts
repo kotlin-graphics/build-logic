@@ -19,11 +19,7 @@ group = "kotlin.graphics"
 
 dependencies {
 
-
-    println("common")
-    println(rootProject.extra)
-    println(rootProject.extra.properties)
-    val platformVersion by rootProject.extra {"platformVersion" }
+    val platformVersion: String by project
     implementation(platform("kotlin.graphics.platform:source:$platformVersion"))
 
     testImplementation(platform("kotlin.graphics.platform:test:$platformVersion"))

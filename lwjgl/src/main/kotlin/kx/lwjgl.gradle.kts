@@ -6,8 +6,7 @@ plugins {
 
 dependencies {
 
-    println("lwjgl")
-    val platformVersion by rootProject.extra {"platformVersion" }
+    val platformVersion: String by project
     implementation(platform("kotlin.graphics.platform:source:$platformVersion"))
 }
 
