@@ -263,5 +263,4 @@
     <orderEntry type="library" scope="RUNTIME" name="Gradle: jakarta.xml.bind:jakarta.xml.bind-api:2.3.2" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: jakarta.activation:jakarta.activation-api:1.2.1" level="project" />
   </component>
-  <component name="TestModuleProperties" production-module="build-logic.docs.main" />
 </module>

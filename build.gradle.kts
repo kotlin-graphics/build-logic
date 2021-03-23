@@ -31,62 +31,61 @@ subprojects {
     }
 }
 
-val gitDescribe: String
-    get() = ByteArrayOutputStream().also { exec { commandLine("git", "describe", "--tags"); standardOutput = it; } }
-        .toString().trim().replace(Regex("-g([a-z0-9]+)$"), "-$1")
+object git {
+
+//    val describe: String
+//        get() {
+//            val out = ByteArrayOutputStream()
+//            exec {
+//                commandLine("git", "describe", "--tags")
+//                standardOutput = out
+//            }
+//            return out.toString().trim()
+//        }
+//
+//    val distance: Int
+//        get() = describe.substringBeforeLast("-g").substringAfterLast('-').toInt()
+//
+//    val tag: String
+//        get() = describe.substringBeforeLast('-').substringBeforeLast('-')
+
+    fun addCommitPush(message: String, dir: File = rootDir) {
+//        exec { workingDir = dir; commandLine("git", "add", "."); }
+//        exec { workingDir = dir; commandLine("git", "commit", "-m", message); }
+//        exec { workingDir = dir; commandLine("git", "push"); }
+    }
+}
 
 tasks {
-    register("1)bump,commit,push") {
-        group = "kx-dev"
-        doLast {
-            bump()
-            exec { commandLine("git", "add", ".") }
-            var message = gitDescribe.substringBeforeLast('-')
-            val commits = message.substringAfterLast('-').toInt() + 1
-            message = message.substringBeforeLast('-') + "+$commits"
-            exec { commandLine("git", "commit", "-m", message) }
-            exec { commandLine("git", "push") }
-        }
-    }
-    register("2)publish") {
-        group = "kx-dev"
-        //        dependsOn("commit&push") not reliable
-        finalizedBy(getTasksByName("publish", true))
-    }
-    register("3)[mary]commit,push") {
-        group = "kx-dev"
-        doLast {
-            val maryDir = file("../mary")
-            exec {
-                workingDir = maryDir
-                commandLine("git", "add", ".")
-            }
-            val message = """
-                |$project :arrow_up:
-                |snapshot $gitDescribe
-            """.trimMargin()
-            exec {
-                workingDir = maryDir
-                commandLine("git", "commit", "-m", message)
-            }
-            exec {
-                workingDir = maryDir
-                commandLine("git", "push")
-            }
-        }
-        //        mustRunAfter("publishSnapshot") // order
-    }
+//    register("bump") { bump() }
+//    register("gitDescribe") { println(git.describe) }
+//    register("gitDistance") { println(git.distance) }
+//    register("1)bump,commit,push") {
+//        group = "kx-dev"
+//        doLast {
+//            bump()
+//            git.addCommitPush("${git.tag}+${git.distance}")
+//        }
+//    }
+//    register("2)publish") {
+//        group = "kx-dev"
+//        //        dependsOn("commit&push") not reliable
+//        finalizedBy(getTasksByName("publish", true))
+//    }
+//    register("3)[mary]commit,push") {
+//        group = "kx-dev"
+//        doLast {
+//            git.addCommitPush("""
+//                    |$project :arrow_up:
+//                    |snapshot ${git.describe}""".trimMargin(), file("../mary"))
+//        }
+//        //        mustRunAfter("publishSnapshot") // order
+//    }
 }
 
-fun bump() {
-    val text = buildFile.readText()
-    val version = version.toString()
-    val plus = version.indexOf('+')
-    buildFile.writeText(text.replace(version, when {
-        plus != -1 -> {
-            val (tag, delta) = version.split('+')
-            "$tag+%02d".format(delta.toInt() + 1)
-        }
-        else -> "$version+01"
-    }))
-}
+//fun bump() {
+//    val text = buildFile.readText()
+//    val version = version.toString()
+//    val bump = "${version.split('+').first()}+%02d".format(git.distance + 1)
+//    buildFile.writeText(text.replace(version, bump))
+//}

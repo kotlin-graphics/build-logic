@@ -9,7 +9,7 @@ plugins {
 }
 
 // limited dsl support inside here
-publishing  {
+publishing {
     publications.create<MavenPublication>("maven") {
         from(components["java"])
         suppressPomMetadataWarningsFor("runtimeElements")
@@ -27,9 +27,19 @@ val gitDescribe: String
             commandLine("git", "describe", "--tags")
             standardOutput = it
         }
-    }.toString().trim().replace(Regex("-g([a-z0-9]+)$"), "-$1")
+    }.toString().trim().replace(Regex("-([a-z0-9]+)-g([a-z0-9]+)$"), "+$1-$2")
+
+val gitDistance: Int
+    get() = ByteArrayOutputStream().also {
+        rootProject.exec {
+            commandLine("git", "describe", "--tags")
+            standardOutput = it
+        }
+    }.toString().trim().substringBeforeLast("-g").substringAfterLast('-').toInt()
 
 tasks {
+    register("gitDescribe") { println(gitDescribe) }
+    register("gitDistance") { println(gitDistance) }
     register("1)bump,commit,push") {
         group = "kx-dev"
         doLast {
@@ -44,7 +54,7 @@ tasks {
     }
     register("2)publish") {
         group = "kx-dev"
-//        dependsOn("commit&push") not reliable
+        //        dependsOn("commit&push") not reliable
         finalizedBy(getTasksByName("publish", true))
     }
     register("3)[mary]commit,push") {
@@ -68,7 +78,7 @@ tasks {
                 commandLine("git", "push")
             }
         }
-//        mustRunAfter("publishSnapshot") // order
+        //        mustRunAfter("publishSnapshot") // order
     }
 }
 
