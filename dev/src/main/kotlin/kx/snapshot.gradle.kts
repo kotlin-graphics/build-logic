@@ -30,7 +30,7 @@ tasks {
         //        dependsOn("commit&push") not reliable
         finalizedBy(getTasksByName("publish", true).filter { it.path != ":dev:publish" })
     }
-    register("3)[mary]commit,push") {
+    register("3)|mary|commit,push") {
         group = "kx-dev"
         doLast {
             gitAddCommitPush("""

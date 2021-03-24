@@ -2,17 +2,17 @@ import java.io.ByteArrayOutputStream
 
 plugins {
     `kotlin-dsl` apply false
-    id("kx.snapshot") version "0.0.2"
+    id("kx.snapshot") version "0.0.3"
 }
 
-version = "0.7.0+68" // for ::bump
+version = "0.7.0+69" // for ::bump
 ext["platformVersion"] = "0.2.8+29"
 
 subprojects {
 
     group = "kotlin.graphics.build-logic"
     version = when (name) {
-        "dev" -> "0.0.2"
+        "dev" -> "0.0.3"
         else -> rootProject.version
     }
 
