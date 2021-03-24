@@ -1,16 +1,16 @@
 plugins {
     `kotlin-dsl` apply false
-    id("kx.snapshot") version "0.0.4"
+    id("kx.snapshot") version "0.0.5"
 }
 
-version = "0.7.0+70" // for ::bump
+version = "0.7.0+71" // for ::bump
 ext["platformVersion"] = "0.2.8+29"
 
 subprojects {
 
     group = "kotlin.graphics.build-logic"
     version = when (name) {
-        "dev" -> "0.0.4"
+        "dev" -> "0.0.5"
         else -> rootProject.version
     }
 
