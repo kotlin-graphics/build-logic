@@ -9,7 +9,6 @@ plugins {
 }
 
 repositories {
-    jcenter()
     maven("https://dl.bintray.com/kotlin/kotlinx")
 }
 
@@ -75,7 +74,7 @@ tasks {
         archives(dokkaHtmlJar)
     }
 
-    javadoc { enabled = !jitpack }
+    named<Javadoc>("javadoc") { enabled = !jitpack }
 }
 
 fun ArtifactHandler.archives(artifactNotation: Any): PublishArtifact = add("archives", artifactNotation)
