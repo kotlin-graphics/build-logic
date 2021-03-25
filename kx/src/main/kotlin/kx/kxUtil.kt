@@ -45,38 +45,26 @@ private fun DependencyHandler.add(test: Boolean, projects: Array<KxProject>) {
     }
 }
 
-private fun DependencyHandler.impl(
-    dependencyNotation: String,
-    dependencyConfiguration: Action<ExternalModuleDependency>
-): ExternalModuleDependency = addDependencyTo(
-    this, "implementation", dependencyNotation, dependencyConfiguration
-) as ExternalModuleDependency
+private fun DependencyHandler.impl(dependencyNotation: String,
+                                   dependencyConfiguration: Action<ExternalModuleDependency>): ExternalModuleDependency =
+    addDependencyTo(this, "implementation", dependencyNotation, dependencyConfiguration)
 
-private fun DependencyHandler.testImpl(
-    dependencyNotation: String,
-    dependencyConfiguration: Action<ExternalModuleDependency>
-): ExternalModuleDependency = addDependencyTo(
-    this, "testImplementation", dependencyNotation, dependencyConfiguration
-) as ExternalModuleDependency
+private fun DependencyHandler.testImpl(dependencyNotation: String,
+                                       dependencyConfiguration: Action<ExternalModuleDependency>): ExternalModuleDependency =
+    addDependencyTo(this, "testImplementation", dependencyNotation, dependencyConfiguration)
 
 private fun <T : ModuleDependency> T.exclude(group: String? = null, module: String? = null): T =
     uncheckedCast(exclude(excludeMapFor(group, module)))
 
 @Suppress("unchecked_cast", "nothing_to_inline")
-private inline fun <T> uncheckedCast(obj: Any?): T =
-    obj as T
+private inline fun <T> uncheckedCast(obj: Any?): T = obj as T
 
 private fun excludeMapFor(group: String?, module: String?): Map<String, String> =
-    mapOfNonNullValuesOf(
-        "group" to group,
-        "module" to module
-    )
+    mapOfNonNullValuesOf("group" to group, "module" to module)
 
 private fun mapOfNonNullValuesOf(vararg entries: Pair<String, String?>): Map<String, String> =
     mutableMapOf<String, String>().apply {
-        for ((k, v) in entries) {
-            if (v != null) {
+        for ((k, v) in entries)
+            if (v != null)
                 put(k, v)
-            }
-        }
     }
