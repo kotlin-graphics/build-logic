@@ -17,8 +17,7 @@ val jitpack by lazy { System.getenv("JITPACK") == "true" }
 tasks {
 
     fun addInIndex(snippet: String, getOffset: (String) -> Int) {
-        val html = project.name + File.separatorChar + "index.html"
-        val index = dokkaHtml.get().outputDirectory.get().resolve(html)
+        val index = dokkaHtml.get().outputDirectory.get().resolve("index.html")
         val text = index.readText()
         val ofs = getOffset(text)
         val newText = text.replaceRange(ofs, ofs, snippet)
