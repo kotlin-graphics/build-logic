@@ -3,9 +3,8 @@ package kx
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    `java-library`
-//    kotlin("jvm")
-    id("org.jetbrains.kotlin.jvm")
+    kotlin("jvm")
+//    id("org.jetbrains.kotlin.jvm")
     //    id("com.example.jacoco")
     id("com.github.johnrengelman.shadow")
 }
