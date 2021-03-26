@@ -11,6 +11,7 @@ plugins {
 }
 
 repositories {
+    mavenCentral()
     maven("https://dl.bintray.com/kotlin/kotlinx")
 }
 
