@@ -1,3 +1,5 @@
+package kx
+
 import org.gradle.kotlin.dsl.`java-library`
 import org.gradle.kotlin.dsl.maven
 import org.gradle.kotlin.dsl.repositories
