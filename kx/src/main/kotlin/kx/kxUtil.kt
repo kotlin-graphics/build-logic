@@ -6,14 +6,25 @@ import org.gradle.api.artifacts.ModuleDependency
 import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.kotlin.dsl.accessors.runtime.addDependencyTo
 
-enum class KxProject {
-    kool, unsigned, glm, gli, gln, vkk, uno, imgui, assimp, openvr;
-
-    val projectName
-        get() = when (this) {
-            uno -> "uno-sdk"
-            else -> name
-        }
+enum class KxProject(val subprojects: List<KxProject> = emptyList()) {
+    kool,
+    unsigned,
+    glm,
+    gli,
+    gln,
+    vkk,
+    unoCore,
+    unoAwt,
+    unoVk,
+    uno(listOf(unoAwt, unoCore, unoVk)),
+    imguiCore,
+    imguiGl,
+    imguiGlfw,
+    imguiOpenjfx,
+    imguiVk,
+    imgui(listOf(imguiCore, imguiGl, imguiGlfw, imguiOpenjfx, imguiVk)),
+    assimp,
+    openvr
 }
 
 //object KxBundle {
@@ -37,7 +48,7 @@ fun DependencyHandler.kxTestImplementation(vararg projects: KxProject) = add(tru
 private fun DependencyHandler.add(test: Boolean, projects: Array<KxProject>) {
     for (p in projects) {
         val group = "kotlin.graphics"
-        val art = p.projectName
+        val art = p.name
         if (test)
             testImpl("$group:$art") { exclude("kx.platform") }
         else
