@@ -2,6 +2,7 @@ package kx
 
 import java.io.ByteArrayOutputStream
 
+
 val gitDescribe: String
     get() = ByteArrayOutputStream().also { exec { commandLine("git", "describe", "--tags"); standardOutput = it; } }.toString().trim()
 

@@ -7,6 +7,7 @@ plugins {
 subprojects {
 
     apply(plugin = "maven-publish")
+    apply(plugin = "java")
 
     // limited dsl support inside here
     extensions.configure<PublishingExtension>("publishing") {
