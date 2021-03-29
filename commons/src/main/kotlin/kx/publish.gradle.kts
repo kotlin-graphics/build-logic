@@ -12,7 +12,7 @@ allprojects {
 
     if (!multiModule || !isRootProject) {
 
-        println("$this, $version, ${rootProject.version}")
+        println("$this, $version, $rootProject, ${rootProject.version}")
         if (multiModule) {
             println("in")
             version = rootProject.version
