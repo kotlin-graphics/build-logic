@@ -18,8 +18,11 @@ allprojects {
         // limited dsl support inside here
         extensions.configure<PublishingExtension>("publishing") {
             publications.create<MavenPublication>("maven") {
-                if(multiModule)
-                    artifactId = "${rootProject.name}-${project.name}"
+                if (multiModule)
+                    afterEvaluate {
+                        artifactId = "${rootProject.name}-${project.name}"
+                        version = rootProject.version
+                    }
                 // else default value is fine
                 //      artifactid = project.name
                 from(components["java"])

@@ -4,6 +4,8 @@ import org.jetbrains.dokka.gradle.DokkaMultiModuleTask
 import org.jetbrains.dokka.gradle.DokkaTask
 import java.net.URL
 
+// TODO maybe we don't need the per-project generation?
+
 plugins {
     id("org.jetbrains.dokka") apply false
 }
