@@ -20,7 +20,7 @@ allprojects {
                 project.hasProperty("platformVersion") -> project.property("platformVersion")
                 else -> "0.2.8+42"
             }
-            implementation(platform("kotlin.graphics.platform:source:$platformVersion"))
+            "implementation"(platform("kotlin.graphics.platform:source:$platformVersion"))
         }
     }
 }
