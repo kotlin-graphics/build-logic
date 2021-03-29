@@ -18,14 +18,10 @@ allprojects {
         // limited dsl support inside here
         extensions.configure<PublishingExtension>("publishing") {
             publications.create<MavenPublication>("maven") {
-                if(multiModule) {
+                if(multiModule)
                     artifactId = "${rootProject.name}-${project.name}"
-                    // this plugin gets applied before anything else, so `version` in the subprojects is still `undefined`
-                    version = rootProject.version.toString()
-                }
-                // else default values are fine
+                // else default value is fine
                 //      artifactid = project.name
-                //      version = project.version
                 from(components["java"])
                 suppressPomMetadataWarningsFor("runtimeElements")
             }
