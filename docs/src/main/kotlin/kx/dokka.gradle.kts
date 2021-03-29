@@ -87,7 +87,12 @@ allprojects {
         }
     }
 
-    if(multiModule && isRootProject)
+    if(multiModule && isRootProject) {
+
+        repositories {
+            maven("https://dl.bintray.com/kotlin/kotlinx")
+        }
+
         tasks {
             // no dsl support here
             dokkaHtmlMultiModule {
@@ -95,6 +100,7 @@ allprojects {
                 dependsOn("assemble")
             }
         }
+    }
 }
 
 fun ArtifactHandler.archives(artifactNotation: Any): PublishArtifact = add("archives", artifactNotation)
