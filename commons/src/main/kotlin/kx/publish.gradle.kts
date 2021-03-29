@@ -12,8 +12,11 @@ allprojects {
 
     if (!multiModule || !isRootProject) {
 
-        if (multiModule)
+        println("$this, $version, ${rootProject.version}")
+        if (multiModule) {
+            println("in")
             version = rootProject.version
+        }
 
         apply(plugin = "maven-publish")
         apply(plugin = "java")
