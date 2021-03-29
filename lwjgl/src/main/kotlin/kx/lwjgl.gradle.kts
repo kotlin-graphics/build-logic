@@ -8,6 +8,8 @@ allprojects {
 
     if (!multiModule || !isRootProject) {
 
+        apply(plugin = "java-library")
+
         repositories {
             maven("https://raw.githubusercontent.com/kotlin-graphics/mary/master")
         }
