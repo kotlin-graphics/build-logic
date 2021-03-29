@@ -34,7 +34,7 @@ allprojects {
             }
 
             // this is needed because we have a separate compile step in this example with the 'module-info.java' is in 'main/java' and the Kotlin code is in 'main/kotlin'
-            val module = "$group.${"${if (multiModule) rootProject.name else ""}-"}$name" // uno-
+            val module = "$group.${"${if (multiModule) rootProject.name else ""}."}$name" // uno-
             named<JavaCompile>("compileJava") {
                 options.compilerArgs = listOf("--patch-module", "$module=${sourceSets.main.get().output.asPath}")
             }
