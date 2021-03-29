@@ -1,22 +1,26 @@
 package kx
 
+val multiModule = subprojects.isNotEmpty()
 
-plugins {
-    `java-library`
-}
+allprojects {
 
-repositories {
-    maven("https://raw.githubusercontent.com/kotlin-graphics/mary/master")
-}
+    val isRootProject = this == rootProject
 
-dependencies {
+    if (!multiModule || !isRootProject) {
 
-    val platformVersion = when {
-        project.hasProperty("platformVersion") -> project.property("platformVersion")
-        else -> "0.2.8+42"
+        repositories {
+            maven("https://raw.githubusercontent.com/kotlin-graphics/mary/master")
+        }
+
+        dependencies {
+
+            val platformVersion = when {
+                project.hasProperty("platformVersion") -> project.property("platformVersion")
+                else -> "0.2.8+42"
+            }
+            implementation(platform("kotlin.graphics.platform:source:$platformVersion"))
+        }
     }
-    implementation(platform("kotlin.graphics.platform:source:$platformVersion"))
 }
-
 
 

@@ -1,84 +1,106 @@
 package kx
 
+import org.jetbrains.dokka.gradle.DokkaMultiModuleTask
 import org.jetbrains.dokka.gradle.DokkaTask
 import java.net.URL
 
 plugins {
-    `java-library`
-    id("org.jetbrains.dokka")
+    id("org.jetbrains.dokka") apply false
 }
 
-repositories {
-    maven("https://dl.bintray.com/kotlin/kotlinx")
-}
+val multiModule = subprojects.isNotEmpty()
 
-val jitpack by lazy { System.getenv("JITPACK") == "true" }
+allprojects {
 
-tasks {
+    val isRootProject = this == rootProject
 
-    fun addInIndex(snippet: String, getOffset: (String) -> Int) {
-        val index = dokkaHtml.get().outputDirectory.get().resolve("index.html")
-        val text = index.readText()
-        val ofs = getOffset(text)
-        val newText = text.replaceRange(ofs, ofs, snippet)
-        index.writeText(newText)
-    }
+    if (!multiModule || !isRootProject) {
 
-    // add the netlify badge in the lower right corner
-    val addNetlifyBadge by register("netlifyBadge") {
-        enabled = !jitpack
-        doLast {
-            addInIndex(netlifyBadge) { it.lastIndexOf("</span>") + 7 }
+        apply(plugin = "org.jetbrains.dokka")
+
+        repositories {
+            maven("https://dl.bintray.com/kotlin/kotlinx")
+        }
+
+        val jitpack by lazy { System.getenv("JITPACK") == "true" }
+
+        tasks {
+
+            fun addInIndex(snippet: String, getOffset: (String) -> Int) {
+                val index = dokkaHtml.get().outputDirectory.get().resolve("index.html")
+                val text = index.readText()
+                val ofs = getOffset(text)
+                val newText = text.replaceRange(ofs, ofs, snippet)
+                index.writeText(newText)
+            }
+
+            // add the netlify badge in the lower right corner
+            val addNetlifyBadge by register("netlifyBadge") {
+                enabled = !jitpack
+                doLast {
+                    addInIndex(netlifyBadge) { it.lastIndexOf("</span>") + 7 }
+                }
+            }
+
+            val addGithubCorner by register("githubCorner") {
+                enabled = !jitpack
+                doLast {
+                    addInIndex(githubCorner) { text ->
+                        val ofs = text.lastIndexOf("\"searchBar\"></div>") + 18
+                        text.indexOf("</div>", startIndex = ofs) + 6 // move to the end of <div/> block
+                    }
+                }
+            }
+
+            dokkaHtml {
+                enabled = !jitpack
+                dokkaSourceSets.configureEach {
+                    sourceLink {
+                        localDirectory.set(file("src/main/kotlin"))
+                        remoteUrl.set(URL("https://github.com/kotlin-graphics/${project.name}/tree/master/src/main/kotlin"))
+                        remoteLineSuffix.set("#L")
+                    }
+                }
+                finalizedBy(addNetlifyBadge, addGithubCorner)
+            }
+
+            val dokkaHtmlJar by register<Jar>("dokkaHtmlJar") {
+                enabled = !jitpack
+                dependsOn(dokkaHtml)
+                from(dokkaHtml.get().outputDirectory.get())
+                archiveClassifier.set("html-doc")
+            }
+
+            val dokkaJavadocJar by register<Jar>("dokkaJavadocJar") {
+                enabled = !jitpack
+                dependsOn(dokkaJavadoc)
+                from(dokkaJavadoc.get().outputDirectory.get())
+                archiveClassifier.set("javadoc")
+            }
+
+            project.artifacts {
+                archives(dokkaJavadocJar)
+                archives(dokkaHtmlJar)
+            }
+
+            named<Javadoc>("javadoc") { enabled = !jitpack }
         }
     }
 
-    val addGithubCorner by register("githubCorner") {
-        enabled = !jitpack
-        doLast {
-            addInIndex(githubCorner) { text ->
-                val ofs = text.lastIndexOf("\"searchBar\"></div>") + 18
-                text.indexOf("</div>", startIndex = ofs) + 6 // move to the end of <div/> block
+    if(multiModule && isRootProject)
+        tasks {
+            // no dsl support here
+            dokkaHtmlMultiModule {
+                outputDirectory.set(buildDir.resolve("dokkaCustomMultiModuleOutput"))
+                dependsOn("assemple")
             }
         }
-    }
-
-    dokkaHtml {
-        enabled = !jitpack
-        dokkaSourceSets.configureEach {
-            sourceLink {
-                localDirectory.set(file("src/main/kotlin"))
-                remoteUrl.set(URL("https://github.com/kotlin-graphics/${project.name}/tree/master/src/main/kotlin"))
-                remoteLineSuffix.set("#L")
-            }
-        }
-        finalizedBy(addNetlifyBadge, addGithubCorner)
-    }
-
-    val dokkaHtmlJar by register<Jar>("dokkaHtmlJar") {
-        enabled = !jitpack
-        dependsOn(dokkaHtml)
-        from(dokkaHtml.get().outputDirectory.get())
-        archiveClassifier.set("html-doc")
-    }
-
-    val dokkaJavadocJar by register<Jar>("dokkaJavadocJar") {
-        enabled = !jitpack
-        dependsOn(dokkaJavadoc)
-        from(dokkaJavadoc.get().outputDirectory.get())
-        archiveClassifier.set("javadoc")
-    }
-
-    project.artifacts {
-        archives(dokkaJavadocJar)
-        archives(dokkaHtmlJar)
-    }
-
-    named<Javadoc>("javadoc") { enabled = !jitpack }
 }
 
 fun ArtifactHandler.archives(artifactNotation: Any): PublishArtifact = add("archives", artifactNotation)
 val TaskContainer.dokkaHtml: TaskProvider<DokkaTask> get() = named<DokkaTask>("dokkaHtml")
 val TaskContainer.dokkaJavadoc: TaskProvider<DokkaTask> get() = named<DokkaTask>("dokkaJavadoc")
+val TaskContainer.dokkaHtmlMultiModule: TaskProvider<DokkaMultiModuleTask> get() = named<DokkaMultiModuleTask>("dokkaHtmlMultiModule")
 
 val netlifyBadge = """
       <a href="https://www.netlify.com">
