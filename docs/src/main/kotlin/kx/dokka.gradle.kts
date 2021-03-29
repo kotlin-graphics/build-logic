@@ -92,7 +92,7 @@ allprojects {
             // no dsl support here
             dokkaHtmlMultiModule {
                 outputDirectory.set(buildDir.resolve("dokkaCustomMultiModuleOutput"))
-                dependsOn("assemple")
+                dependsOn("assemble")
             }
         }
 }
