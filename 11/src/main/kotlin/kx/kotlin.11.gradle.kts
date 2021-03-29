@@ -4,7 +4,6 @@ import org.gradle.api.attributes.java.TargetJvmVersion.TARGET_JVM_VERSION_ATTRIB
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    //    `java-library`
     id("kx.kotlin") apply false
 }
 
