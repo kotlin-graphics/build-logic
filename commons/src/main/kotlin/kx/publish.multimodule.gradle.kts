@@ -12,6 +12,7 @@ subprojects {
     // limited dsl support inside here
     extensions.configure<PublishingExtension>("publishing") {
         publications.create<MavenPublication>("maven") {
+            artifactId = "${rootProject.name}-${project.name}"
             from(components["java"])
             suppressPomMetadataWarningsFor("runtimeElements")
         }

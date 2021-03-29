@@ -3,7 +3,7 @@ plugins {
     id("kx.snapshot") version "0.0.5"
 }
 
-version = "0.7.0+85" // for ::bump
+version = "0.7.0+86" // for ::bump
 ext["platformVersion"] = "0.2.8+42"
 
 subprojects {
