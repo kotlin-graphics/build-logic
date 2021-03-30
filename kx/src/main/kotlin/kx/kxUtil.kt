@@ -1,6 +1,7 @@
 package kx
 
 import org.gradle.api.Action
+import org.gradle.api.artifacts.Dependency
 import org.gradle.api.artifacts.ExternalModuleDependency
 import org.gradle.api.artifacts.ModuleDependency
 import org.gradle.api.artifacts.dsl.DependencyHandler
@@ -42,30 +43,30 @@ enum class KxProject(val subprojects: List<KxProject> = emptyList()) {
 //@JvmName("KxTestImplementation2")
 //fun DependencyHandler.kxTestImplementation(modules: Array<KxProject>) = impl(true, modules)
 
-fun DependencyHandler.kxImplementation(vararg projects: KxProject) = add(false, projects as Array<KxProject>)
-fun DependencyHandler.kxTestImplementation(vararg projects: KxProject) = add(true, projects as Array<KxProject>)
+fun DependencyHandler.kxImplementation(vararg projects: KxProject) = add(false, projects)
+fun DependencyHandler.kxTestImplementation(vararg projects: KxProject) = add(true, projects)
 
-private fun DependencyHandler.add(test: Boolean, projects: Array<KxProject>) {
+private fun DependencyHandler.add(test: Boolean, projects: Array<out KxProject>) {
     for (p in projects) {
-        val group = "kotlin.graphics"
-        val art = p.name
-        if (test)
-            testImpl("$group:$art") { exclude("kx.platform") }
+        if (p.subprojects.isEmpty())
+            add(test, p.name)
         else
-            impl("$group:$art") { exclude("kx.platform") }
+            for (subP in p.subprojects)
+                add(test, subP.name.replace(Regex("[A-Z]")) { "-${it.value.decapitalize()}" })
     }
 }
 
-private fun DependencyHandler.impl(dependencyNotation: String,
-                                   dependencyConfiguration: Action<ExternalModuleDependency>): ExternalModuleDependency =
-    addDependencyTo(this, "implementation", dependencyNotation, dependencyConfiguration)
+private fun DependencyHandler.add(test: Boolean, artifact: String): Dependency? =
+    add(if (test) "testImplementation" else "implementation", "kotlin.graphics:$artifact") // { exclude("kx.platform") }
 
-private fun DependencyHandler.testImpl(dependencyNotation: String,
-                                       dependencyConfiguration: Action<ExternalModuleDependency>): ExternalModuleDependency =
-    addDependencyTo(this, "testImplementation", dependencyNotation, dependencyConfiguration)
-
-private fun <T : ModuleDependency> T.exclude(group: String? = null, module: String? = null): T =
-    uncheckedCast(exclude(excludeMapFor(group, module)))
+//private fun DependencyHandler.impl(dependencyNotation: String, dependencyConfiguration: Action<ExternalModuleDependency>): ExternalModuleDependency =
+//    addDependencyTo(this, "implementation", dependencyNotation, dependencyConfiguration)
+//
+//private fun DependencyHandler.testImpl(dependencyNotation: String, dependencyConfiguration: Action<ExternalModuleDependency>): ExternalModuleDependency =
+//    addDependencyTo(this, "testImplementation", dependencyNotation, dependencyConfiguration)
+//
+//private fun <T : ModuleDependency> T.exclude(group: String? = null, module: String? = null): T =
+//    uncheckedCast(exclude(excludeMapFor(group, module)))
 
 @Suppress("unchecked_cast", "nothing_to_inline")
 private inline fun <T> uncheckedCast(obj: Any?): T = obj as T
