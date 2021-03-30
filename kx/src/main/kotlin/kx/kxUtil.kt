@@ -49,12 +49,14 @@ fun DependencyHandler.kxTestImplementation(vararg projects: KxProject) = add(tru
 private fun DependencyHandler.add(test: Boolean, projects: Array<out KxProject>) {
     for (p in projects) {
         if (p.subprojects.isEmpty())
-            add(test, p.name)
+            add(test, p.name.toSnakeCase())
         else
             for (subP in p.subprojects)
-                add(test, subP.name.replace(Regex("[A-Z]")) { "-${it.value.decapitalize()}" })
+                add(test, subP.name.toSnakeCase())
     }
 }
+
+private fun String.toSnakeCase() = replace(Regex("[A-Z]")) { "-${it.value.decapitalize()}" }
 
 private fun DependencyHandler.add(test: Boolean, artifact: String): Dependency? =
     add(if (test) "testImplementation" else "implementation", "kotlin.graphics:$artifact") // { exclude("kx.platform") }
