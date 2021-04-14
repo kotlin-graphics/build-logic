@@ -39,8 +39,6 @@ allprojects {
             }
         }
 
-        extensions.getByName<JavaPluginExtension>("java").modularity.inferModulePath.set(true)
-
         // == Add access to the 'modular' variant of kotlin("stdlib"): Put this into a buildSrc plugin and reuse it in all your subprojects
         configurations.all { attributes.attribute(TARGET_JVM_VERSION_ATTRIBUTE, 11) }
     }
