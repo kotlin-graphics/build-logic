@@ -24,4 +24,4 @@ include("commons")
 //include("docs")
 //include("lwjgl")
 
-includeBuild("../magik")
+//includeBuild("../magik")

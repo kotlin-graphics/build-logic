@@ -3,17 +3,17 @@ import magik.github
 plugins {
     `kotlin-dsl` apply false
     //    id("kx.snapshot") version "0.0.5"
-    id("elect86.magik") version "0.1.1"
+    id("elect86.magik") version "0.1.1" apply false
     //    `maven-publish`
 }
 
-version = "0.7.1"
+version = "0.7.3"
 
 repositories {
     mavenCentral()
 }
 
-magik { commitWithChanges.set(true) }
+//magik { commitWithChanges.set(true) }
 
 subprojects {
 
@@ -29,16 +29,15 @@ subprojects {
     repositories {
         mavenCentral()
         gradlePluginPortal()
-        //        maven("https://repo.repsy.io/mvn/elect/kx/")
         github("kotlin-graphics/mary")
     }
 
     extensions.configure<PublishingExtension> {
         repositories {
-            //                        maven {
-            //                            name = "prova"
-            //                            url = uri("$rootDir/prova")
-            //                        }
+//            maven {
+//                name = "prova"
+//                url = uri("$rootDir/prova")
+//            }
             github { domain = "kotlin-graphics/mary" }
         }
     }

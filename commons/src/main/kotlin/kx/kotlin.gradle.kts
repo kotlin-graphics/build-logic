@@ -1,7 +1,6 @@
 package kx
 
-import org.jetbrains.kotlin.gradle.dsl.KotlinCommonProjectExtension
-import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSet
+import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -45,14 +44,12 @@ val SourceSet.compileKotlinTaskName: String
     get() = getCompileTaskName("kotlin")
 
 val SourceSet.kotlin: SourceDirectorySet
-//    get() = withConvention(KotlinSourceSet::class) { kotlin }
-    get() = project.extensions.getByType<KotlinCommonProjectExtension>().sourceSets.getByName(name).kotlin
+    get() = project.extensions.getByType<KotlinJvmProjectExtension>().sourceSets.getByName(name).kotlin
 
 val jdk11 = sourceSets.main.get()
 
 val jdk8 = sourceSets.create("jdk8") {
     java.setSrcDirs(emptySet<File>())
-//    this.ex
     kotlin.setSrcDirs(emptySet<File>())
     java.setSrcDirs(jdk11.java.srcDirs)
     kotlin.setSrcDirs(jdk11.kotlin.srcDirs)
@@ -62,11 +59,7 @@ val jdk8 = sourceSets.create("jdk8") {
 
 java.registerFeature("jdk8") {
     usingSourceSet(jdk8)
-    //    capability(project.group.toString(), project.name, project.version.toString())
     capability(group.toString(), name, version.toString())
-    println(project)
-    println(project.version)
-    println("capability($group, $name, $version)")
 }
 
 configureCompileVersion(jdk8, 8)
@@ -114,5 +107,4 @@ fun configureCompileVersion(set: SourceSet, jdkVersion: Int) {
 //    }
 //}
 
-
-extensions.getByName<JavaPluginExtension>("java").withSourcesJar()
+java { withSourcesJar() }
