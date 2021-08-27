@@ -1,7 +1,7 @@
 
 dependencies {
 
-    val platformVersion = "0.3.2"
+    val platformVersion = "0.3.3+3"
     implementation(platform("kotlin.graphics.platform:plugin:$platformVersion"))
 
 //    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin")
@@ -9,5 +9,5 @@ dependencies {
     implementation("com.github.johnrengelman.shadow:com.github.johnrengelman.shadow.gradle.plugin")
 
 //    implementation("kotlin.graphics.build-logic:dev:0.0.1")
-    implementation("elect86.magik:elect86.magik.gradle.plugin:0.1.1")
+    implementation("elect86.magik:elect86.magik.gradle.plugin")
 }
