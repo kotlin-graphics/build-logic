@@ -1,15 +1,13 @@
 
 dependencies {
 
-    val platformVersion = rootProject.extra["platformVersion"]
-    "implementation"(platform("kotlin.graphics.platform:plugin:$platformVersion"))
+    val platformVersion = "0.3.2"
+    implementation(platform("kotlin.graphics.platform:plugin:$platformVersion"))
 
 //    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin")
-    "implementation"("org.jetbrains.kotlin.jvm:org.jetbrains.kotlin.jvm.gradle.plugin")
-    "implementation"("com.github.johnrengelman.shadow:com.github.johnrengelman.shadow.gradle.plugin")
+    implementation("org.jetbrains.kotlin.jvm:org.jetbrains.kotlin.jvm.gradle.plugin")
+    implementation("com.github.johnrengelman.shadow:com.github.johnrengelman.shadow.gradle.plugin")
 
-//    "implementation"("kotlin.graphics.build-logic:dev:0.0.1")
-
-    "implementation"(project(":kx"))
-    "implementation"(project(":dev"))
+//    implementation("kotlin.graphics.build-logic:dev:0.0.1")
+    implementation("elect86.magik:elect86.magik.gradle.plugin:0.1.1")
 }

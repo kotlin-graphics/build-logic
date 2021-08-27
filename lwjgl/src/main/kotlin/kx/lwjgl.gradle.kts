@@ -16,10 +16,7 @@ allprojects {
 
         dependencies {
 
-            val platformVersion = when {
-                project.hasProperty("platformVersion") -> project.property("platformVersion")
-                else -> "0.2.8+42"
-            }
+            val platformVersion = "0.3.2"
             "implementation"(platform("kotlin.graphics.platform:source:$platformVersion"))
         }
     }

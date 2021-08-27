@@ -2,6 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$USER_HOME$/IdeaProjects/platforms" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../magik" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../platforms" vcs="Git" />
   </component>
 </project>

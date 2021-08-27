@@ -4,19 +4,27 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <compositeConfiguration>
+          <compositeBuild compositeDefinitionSource="SCRIPT">
+            <builds>
+              <build path="$PROJECT_DIR$/../magik" name="magik">
+                <projects>
+                  <project path="$PROJECT_DIR$/../magik" />
+                  <project path="$PROJECT_DIR$/../magik/plugin" />
+                </projects>
+              </build>
+            </builds>
+          </compositeBuild>
+        </compositeConfiguration>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleHome" value="$USER_HOME$/.gradle/wrapper/dists/gradle-7.0-milestone-1-all/1mxcarbtzx809qy5j35if8v52/gradle-7.0-milestone-1" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/11" />
-            <option value="$PROJECT_DIR$/8" />
             <option value="$PROJECT_DIR$/commons" />
-            <option value="$PROJECT_DIR$/dev" />
-            <option value="$PROJECT_DIR$/docs" />
-            <option value="$PROJECT_DIR$/kx" />
-            <option value="$PROJECT_DIR$/lwjgl" />
+            <option value="$PROJECT_DIR$/../magik" />
+            <option value="$PROJECT_DIR$/../magik/plugin" />
           </set>
         </option>
       </GradleProjectSettings>

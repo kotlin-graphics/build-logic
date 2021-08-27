@@ -8,8 +8,7 @@ plugins {
 }
 
 val Project.sourceSets: SourceSetContainer
-    get() =
-        (this as ExtensionAware).extensions.getByName("sourceSets") as SourceSetContainer
+    get() = (this as ExtensionAware).extensions.getByName("sourceSets") as SourceSetContainer
 
 val SourceSetContainer.main: NamedDomainObjectProvider<SourceSet>
     get() = named<SourceSet>("main")
@@ -33,7 +32,8 @@ allprojects {
             }
 
             // this is needed because we have a separate compile step in this example with the 'module-info.java' is in 'main/java' and the Kotlin code is in 'main/kotlin'
-            val module = "$group.${"${if (multiModule) rootProject.name else ""}."}$name" // uno-
+            val module = "$group.${if (multiModule) "${rootProject.name}." else ""}$name" // uno-
+            //            println("module=$module")
             named<JavaCompile>("compileJava") {
                 options.compilerArgs = listOf("--patch-module", "$module=${sourceSets.main.get().output.asPath}")
             }
@@ -41,5 +41,7 @@ allprojects {
 
         // == Add access to the 'modular' variant of kotlin("stdlib"): Put this into a buildSrc plugin and reuse it in all your subprojects
         configurations.all { attributes.attribute(TARGET_JVM_VERSION_ATTRIBUTE, 11) }
+
+        //        println("inferModulePath=${extensions.getByName<JavaPluginExtension>("java").modularity.inferModulePath.get()}")
     }
 }
