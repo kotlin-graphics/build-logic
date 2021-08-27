@@ -3,11 +3,11 @@ import magik.github
 plugins {
     `kotlin-dsl` apply false
     //    id("kx.snapshot") version "0.0.5"
-    id("elect86.magik") version "0.1.3" apply false
+    id("elect86.magik") version "0.1.3" //apply false
     //    `maven-publish`
 }
 
-version = "0.7.3"
+version = "0.7.3+1"
 
 repositories {
     mavenCentral()
