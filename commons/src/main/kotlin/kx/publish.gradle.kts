@@ -49,7 +49,7 @@ plugins {
 //}
 
 publishing {
-    publications.createGithubPublication("maven") {
+    publications.createGithubPublication("maven", addSnapshot = true) {
         //        artifactId = "${rootProject.name}-${project.name}"
         //        version = rootProject.version
 //        println(artifactId)
