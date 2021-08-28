@@ -33,6 +33,10 @@ subprojects {
     }
 
     extensions.configure<PublishingExtension> {
+        publications.create<MavenPublication>("maven") {
+            from(components["java"])
+            suppressPomMetadataWarningsFor("runtimeElements")
+        }
         repositories {
             //            maven {
             //                name = "prova"
