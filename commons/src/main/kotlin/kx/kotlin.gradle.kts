@@ -18,7 +18,7 @@ group = "kotlin.graphics"
 
 dependencies {
 
-    val platformVersion = "0.3.3+12"
+    val platformVersion = "0.3.3+13"
 
     implementation(platform("$group.platform:source:$platformVersion"))
     implementation(kotlin("stdlib-jdk8"))
