@@ -1,5 +1,6 @@
 package kx
 
+import magik.createGithubPublication
 import magik.github
 
 plugins {
@@ -48,7 +49,7 @@ plugins {
 //}
 
 publishing {
-    publications.create<MavenPublication>("maven") {
+    publications.createGithubPublication("maven") {
         //        artifactId = "${rootProject.name}-${project.name}"
         //        version = rootProject.version
 //        println(artifactId)
