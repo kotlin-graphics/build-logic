@@ -51,6 +51,8 @@ publishing {
     publications.create<MavenPublication>("maven") {
         //        artifactId = "${rootProject.name}-${project.name}"
         //        version = rootProject.version
+//        println(artifactId)
+//        println(ver)
         from(components["java"])
         suppressPomMetadataWarningsFor("runtimeElements")
     }
