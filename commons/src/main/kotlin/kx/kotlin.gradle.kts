@@ -6,8 +6,6 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     `java-library`
     kotlin("jvm")
-    //    id("org.jetbrains.kotlin.jvm")
-    //    id("com.example.jacoco")
     id("com.github.johnrengelman.shadow")
 }
 
@@ -20,7 +18,7 @@ group = "kotlin.graphics"
 
 dependencies {
 
-    val platformVersion = "0.3.3+5"
+    val platformVersion = "0.3.3+12"
 
     implementation(platform("$group.platform:source:$platformVersion"))
     implementation(kotlin("stdlib-jdk8"))
@@ -83,7 +81,6 @@ fun configureCompileVersion(set: SourceSet, jdkVersion: Int) {
             source = sourceSets.main.get().kotlin
         }
         named<JavaCompile>(set.compileJavaTaskName) {
-//            println("configureCompileVersion $set $jdkVersion")
             targetCompatibility = target
             sourceCompatibility = target
             modularity.inferModulePath.set(jdkVersion >= 9)
@@ -91,7 +88,6 @@ fun configureCompileVersion(set: SourceSet, jdkVersion: Int) {
                 languageVersion.set(JavaLanguageVersion.of(jdkVersion))
             }.get())
             source = set.allJava
-            //            println(source.files)
             if (jdkVersion >= 9)
                 options.compilerArgs = listOf("--patch-module", "$moduleName=${set.output.asPath}")
         }

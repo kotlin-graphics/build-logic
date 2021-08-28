@@ -11,7 +11,7 @@ repositories {
 
 dependencies {
 
-    val platformVersion = "0.3.3+5"
+    val platformVersion = "0.3.3+12"
     implementation(platform("kotlin.graphics.platform:source:$platformVersion"))
 }
 
