@@ -17,9 +17,10 @@ The current project is structured as follows:
     - docs, for docs auto generation by dokka
     - publish, relies on `magik`, apply `maven-publish`, set the publication and the mary repo
 
-### Install
+### Plugins
 
-`settings.gradle.kts`
+In order to use kotlin-graphics plugins (they are option), in `settings.gradle.kts`
+you need to include the [mary repository](https://github.com/kotlin-graphics/mary) by adding the following:
 
 ```kotlin
 pluginManagement {
@@ -31,11 +32,11 @@ pluginManagement {
 }
 ```
 
-`build.gradle.kts`
+And then Gradle will now be able to locate them when you want to apply them in `build.gradle.kts` by:
 
 ```kotlin
 plugins {
-    val build = "x.x.x"
+    val build = ".."
     id("kx.kotlin") version build
     id("kx.dokka") version build
     id("kx.publish") version build
