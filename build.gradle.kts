@@ -7,7 +7,7 @@ plugins {
     //    `maven-publish`
 }
 
-version = "0.7.3+7"
+version = "0.7.3+8"
 
 repositories {
     mavenCentral()

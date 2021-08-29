@@ -4,38 +4,38 @@ import org.gradle.api.artifacts.Dependency
 import org.gradle.api.artifacts.dsl.DependencyHandler
 
 interface KxProjectInterface
-interface KxSingleProjectInterface
-interface KxMultiProjectInterface {
+interface KxSingleProjectInterface : KxProjectInterface
+interface KxMultiProjectInterface : KxProjectInterface {
     val modules: List<KxSingleProjectInterface>
 }
 
 object KxProject {
 
-    object kool : KxProjectInterface, KxSingleProjectInterface
-    object unsigned : KxProjectInterface, KxSingleProjectInterface
-    object glm : KxProjectInterface, KxSingleProjectInterface
-    object gli : KxProjectInterface, KxSingleProjectInterface
-    object gln : KxProjectInterface, KxSingleProjectInterface
-    object vkk : KxProjectInterface, KxSingleProjectInterface
+    object kool : KxSingleProjectInterface
+    object unsigned : KxSingleProjectInterface
+    object glm : KxSingleProjectInterface
+    object gli : KxSingleProjectInterface
+    object gln : KxSingleProjectInterface
+    object vkk : KxSingleProjectInterface
 
-    object uno : KxProjectInterface, KxMultiProjectInterface {
-        object awt : KxProjectInterface, KxSingleProjectInterface
-        object core : KxProjectInterface, KxSingleProjectInterface
-        object vk : KxProjectInterface, KxSingleProjectInterface
+    object uno : KxMultiProjectInterface {
+        object awt : KxSingleProjectInterface
+        object core : KxSingleProjectInterface
+        object vk : KxSingleProjectInterface
         override val modules: List<KxSingleProjectInterface> = listOf(awt, core, vk)
     }
 
-    object imgui : KxProjectInterface, KxMultiProjectInterface {
-        object core: KxProjectInterface, KxSingleProjectInterface
-        object gl: KxProjectInterface, KxSingleProjectInterface
-        object glfw: KxProjectInterface, KxSingleProjectInterface
-        object openjfx: KxProjectInterface, KxSingleProjectInterface
-        object vk: KxProjectInterface, KxSingleProjectInterface
+    object imgui : KxMultiProjectInterface {
+        object core: KxSingleProjectInterface
+        object gl: KxSingleProjectInterface
+        object glfw: KxSingleProjectInterface
+        object openjfx: KxSingleProjectInterface
+        object vk: KxSingleProjectInterface
         override val modules: List<KxSingleProjectInterface> = listOf(uno.awt, uno.core, uno.vk)
     }
 
-    object assimp : KxProjectInterface, KxSingleProjectInterface
-    object openvr : KxProjectInterface, KxSingleProjectInterface
+    object assimp : KxSingleProjectInterface
+    object openvr : KxSingleProjectInterface
 }
 
 //sealed interface Expr
@@ -92,7 +92,7 @@ object KxProject {
 
 private fun String.toSnakeCase() = replace(Regex("[A-Z]")) { "-${it.value.decapitalize()}" }
 
-private fun DependencyHandler.add(test: Boolean, artifact: String): Dependency? =
+private fun DependencyHandler.implementation(test: Boolean, artifact: String): Dependency? =
     add(if (test) "testImplementation" else "implementation", "kotlin.graphics:$artifact") // { exclude("kx.platform") }
 
 //private fun DependencyHandler.impl(dependencyNotation: String, dependencyConfiguration: Action<ExternalModuleDependency>): ExternalModuleDependency =
