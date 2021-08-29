@@ -1,5 +1,6 @@
 package kx
 
+import magik.addSnapshotPublication
 import magik.createGithubPublication
 import magik.github
 
@@ -49,13 +50,14 @@ plugins {
 //}
 
 publishing {
-    publications.createGithubPublication("maven", addSnapshot = true) {
+    publications.createGithubPublication {
         //        artifactId = "${rootProject.name}-${project.name}"
         //        version = rootProject.version
 //        println(artifactId)
 //        println(ver)
         from(components["java"])
         suppressPomMetadataWarningsFor("runtimeElements")
+        addSnapshotPublication()
     }
     repositories {
         github {
