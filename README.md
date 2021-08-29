@@ -10,11 +10,34 @@ published on [a custom repository](https://github.com/kotlin-graphics/mary) to s
 This costed me a lot in terms of developing time, but I hope it'll pay off in the long term..
 
 The current project is structured as follows:
-- kx, actually the only dummy conventional plugin, provides helpers for kx imports, such as `kxImplementation(..)` 
-- dev, used for snapshots. Used recursively by the same project.. how? Relying on a previous version :)
 - commons:
-    - kotlin, configure the base kotlin, applying the plugin and importing the jdk
-    - publish, relies on `dev`, apply `maven-publish`, set the publication and the mary repo
-- 8 and 11, simply finish to configure for jdk8 and jdk11 with JPMS
-- docs for dokka
-- lwjgl, similar to kx but for lwjgl with `lwjglImplementation(..)`
+    - kotlin: 
+      - configure the base kotlin, compiles for jdk11 (main variant) and jdk8 variant
+      - offers utils for easier the import of kotlin-graphics projects and lwjgl modules
+    - docs, for docs auto generation by dokka
+    - publish, relies on `magik`, apply `maven-publish`, set the publication and the mary repo
+
+### Install
+
+`settings.gradle.kts`
+
+```kotlin
+pluginManagement {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+        maven("https://raw.githubusercontent.com/kotlin-graphics/mary/master")
+    }
+}
+```
+
+`build.gradle.kts`
+
+```kotlin
+plugins {
+    val build = "x.x.x"
+    id("kx.kotlin") version build
+    id("kx.dokka") version build
+    id("kx.publish") version build
+}
+```
