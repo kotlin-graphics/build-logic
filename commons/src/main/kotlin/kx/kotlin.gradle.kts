@@ -95,6 +95,11 @@ fun configureCompileVersion(set: SourceSet, jdkVersion: Int) {
     }
 }
 
+configurations {
+    named("jdk8Implementation") {
+        extendsFrom(implementation.get())
+    }
+}
 
 // == Add access to the 'modular' variant of kotlin("stdlib"): Put this into a buildSrc plugin and reuse it in all your subprojects
 //configurations.all { attributes.attribute(TargetJvmVersion.TARGET_JVM_VERSION_ATTRIBUTE, 11) }
