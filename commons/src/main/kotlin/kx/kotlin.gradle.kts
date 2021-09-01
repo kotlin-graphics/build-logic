@@ -18,7 +18,7 @@ group = "kotlin.graphics"
 
 dependencies {
 
-    val platformVersion = "0.3.3+15"
+    val platformVersion = "0.3.3+16"
 
     implementation(platform("$group.platform:source:$platformVersion"))
     implementation(kotlin("stdlib-jdk8"))
@@ -66,11 +66,6 @@ configureCompileVersion(jdk11, 11)
 val moduleName = "$group.$name"
 
 fun configureCompileVersion(set: SourceSet, jdkVersion: Int) {
-    kotlin {
-        jvmToolchain {
-            (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(jdkVersion))
-        }
-    }
     tasks {
         val target = if (jdkVersion == 8) "1.8" else jdkVersion.toString()
         named<KotlinCompile>(set.compileKotlinTaskName) {
