@@ -1,5 +1,5 @@
 plugins {
-//    `kotlin-dsl`
+    `kotlin-dsl`
 //    id("org.gradle.kotlin.kotlin-dsl")
     id("my-plugin")
 }

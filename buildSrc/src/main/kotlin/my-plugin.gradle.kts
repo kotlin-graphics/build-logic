@@ -1,7 +1,7 @@
 import magik.github
 
 plugins {
-    id("org.gradle.kotlin.kotlin-dsl")
+//    id("org.gradle.kotlin.kotlin-dsl")
     //    kotlin("jvm")// version "1.5.30"
     id("elect86.magik")
     `maven-publish`
