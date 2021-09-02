@@ -2,6 +2,11 @@ package kx
 
 import java.net.URL
 
+plugins {
+    kotlin("jvm")
+
+}
+
 abstract class DynamicAlignExtension {
 
     @get:Input

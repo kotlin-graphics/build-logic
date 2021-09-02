@@ -1,7 +1,8 @@
 import magik.github
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-//    id("org.gradle.kotlin.kotlin-dsl") version "1.5.30"
+    //    id("org.gradle.kotlin.kotlin-dsl") version "1.5.30"
     //    kotlin("jvm")// version "1.5.30"
     id("elect86.magik")
     `maven-publish`
@@ -18,6 +19,16 @@ repositories {
 }
 
 //magik { commitWithChanges.set(true) }
+
+tasks {
+    withType<KotlinCompile> {
+        targetCompatibility = "11"
+        sourceCompatibility = "11"
+        kotlinOptions {
+            jvmTarget = "11"
+        }
+    }
+}
 
 publishing {
     publications {

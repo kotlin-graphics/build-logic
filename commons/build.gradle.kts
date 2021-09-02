@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     `kotlin-dsl`
     id("my-plugin")
@@ -15,4 +17,3 @@ dependencies {
     //    implementation("kotlin.graphics.build-logic:dev:0.0.1")
     implementation("elect86.magik:elect86.magik.gradle.plugin")
 }
-

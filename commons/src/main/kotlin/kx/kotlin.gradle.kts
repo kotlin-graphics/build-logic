@@ -70,6 +70,8 @@ fun configureCompileVersion(set: SourceSet, jdkVersion: Int) {
     tasks {
         val target = if (jdkVersion == 8) "1.8" else jdkVersion.toString()
         named<KotlinCompile>(set.compileKotlinTaskName) {
+            targetCompatibility = target
+            sourceCompatibility = target
             kotlinOptions {
 //                println("${set.compileKotlinTaskName}, $target")
                 jvmTarget = target
