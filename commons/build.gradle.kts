@@ -1,10 +1,11 @@
 plugins {
     `kotlin-dsl`
+    id("my-plugin")
 }
 
 dependencies {
 
-    val platformVersion = "0.3.3+16"
+    val platformVersion = "0.3.3+18"
     implementation(platform("kotlin.graphics.platform:plugin:$platformVersion"))
 
     //    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin")
@@ -14,3 +15,4 @@ dependencies {
     //    implementation("kotlin.graphics.build-logic:dev:0.0.1")
     implementation("elect86.magik:elect86.magik.gradle.plugin")
 }
+

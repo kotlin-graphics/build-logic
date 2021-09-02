@@ -18,7 +18,7 @@ group = "kotlin.graphics"
 
 dependencies {
 
-    val platformVersion = "0.3.3+16"
+    val platformVersion = "0.3.3+18"
 
     implementation(platform("$group.platform:source:$platformVersion"))
     implementation(kotlin("stdlib-jdk8"))
@@ -70,12 +70,14 @@ fun configureCompileVersion(set: SourceSet, jdkVersion: Int) {
         val target = if (jdkVersion == 8) "1.8" else jdkVersion.toString()
         named<KotlinCompile>(set.compileKotlinTaskName) {
             kotlinOptions {
+//                println("${set.compileKotlinTaskName}, $target")
                 jvmTarget = target
                 freeCompilerArgs += listOf("-Xinline-classes", "-Xopt-in=kotlin.RequiresOptIn")
             }
             source = sourceSets.main.get().kotlin
         }
         named<JavaCompile>(set.compileJavaTaskName) {
+//            println("${set.compileJavaTaskName}, $target")
             targetCompatibility = target
             sourceCompatibility = target
             modularity.inferModulePath.set(jdkVersion >= 9)

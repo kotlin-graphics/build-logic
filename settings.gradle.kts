@@ -1,27 +1,21 @@
 
-//dependencyResolutionManagement {
-//    repositories {
-//        gradlePluginPortal()
-////        google()
-//    }
-//}
-
 pluginManagement {
     repositories {
-//        mavenLocal()
+        mavenCentral()
         gradlePluginPortal()
-//        maven("https://repo.repsy.io/mvn/elect/kx/")
         maven("https://raw.githubusercontent.com/kotlin-graphics/mary/master")
     }
 }
 
 rootProject.name = "build-logic"
 
-//includeBuild("/home/elect/IdeaProjects/platforms")
+gradle.rootProject {
+    group = "kotlin.graphics.build-logic"
+    version = "0.7.3+11"
+}
+
 include("commons")
-//include("8")
-//include("11")
+include("utils")
 //include("docs")
-//include("lwjgl")
 
 //includeBuild("../magik")
