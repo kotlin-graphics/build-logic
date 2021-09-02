@@ -1,20 +1,6 @@
 package kx
 
-import org.gradle.api.provider.Property
-import org.gradle.api.tasks.Input
 import java.net.URL
-
-abstract class dynamicAlignExtension {
-
-    @get:Input
-    abstract val verbose: Property<Boolean>
-
-    init {
-        verbose.convention(false)
-    }
-}
-
-val settings = extensions.create<dynamicAlignExtension>("dynamic-align")
 
 val lockfile: String = configurations.run {
     named<Configuration>("implementation").get().run {
@@ -27,6 +13,8 @@ val lockfile: String = configurations.run {
     }
 }
 
+val `dynamic-align-verbose`: String? by project
+
 dependencies {
     //    implementation(platform("kotlin.graphics.platform:source:0.3.3+18"))
     //    implementation(group = "kotlin.graphics.platform" , name = "source", version = "0.3.3+18", classifier = "lockfile", ext = "txt")
@@ -36,7 +24,7 @@ dependencies {
     project.dependencies {
         constraints {
             for (line in lines) {
-                if(settings.verbose.get())
+                if(`dynamic-align-verbose` == "true")
                     println("api($line)")
                 add("api", line)
             }
