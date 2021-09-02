@@ -1,9 +1,11 @@
 package kx
 
+// dummy plugin to import kx/lwjgl utils
+
 plugins {
-    id("kx.source-dynamic")
+//    id("kx.source-dynamic")
 }
 
 repositories {
-    maven("https://raw.githubusercontent.com/kotlin-graphics/mary/master")
+    mavenCentral()
 }

@@ -14,16 +14,17 @@ repositories {
     maven("https://raw.githubusercontent.com/kotlin-graphics/mary/master")
 }
 
-group = "kotlin.graphics"
+version = rootProject.version
+group = rootProject.group
 
 dependencies {
 
     val platformVersion = "0.3.3+18"
 
-    implementation(platform("$group.platform:source:$platformVersion"))
+    implementation(platform("kotlin.graphics.platform:source:$platformVersion"))
     implementation(kotlin("stdlib-jdk8"))
 
-    testImplementation(platform("$group.platform:test:$platformVersion"))
+    testImplementation(platform("kotlin.graphics.platform:test:$platformVersion"))
     testImplementation("io.kotest:kotest-runner-junit5")
     testImplementation("io.kotest:kotest-assertions-core")
 }
