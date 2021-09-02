@@ -14,6 +14,8 @@ val lockfile: String = configurations.run {
 }
 
 val dynamicAlignVerbose: Boolean? by project
+println(dynamicAlignVerbose)
+println(lockfile)
 
 dependencies {
     //    implementation(platform("kotlin.graphics.platform:source:0.3.3+18"))
