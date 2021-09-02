@@ -13,7 +13,7 @@ val lockfile: String = configurations.run {
     }
 }
 
-val `dynamic-align-verbose`: String? by project
+val dynamicAlignVerbose: Boolean? by project
 
 dependencies {
     //    implementation(platform("kotlin.graphics.platform:source:0.3.3+18"))
@@ -24,7 +24,7 @@ dependencies {
     project.dependencies {
         constraints {
             for (line in lines) {
-                if(`dynamic-align-verbose` == "true")
+                if(dynamicAlignVerbose == true)
                     println("api($line)")
                 add("api", line)
             }
