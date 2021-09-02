@@ -1,13 +1,12 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
-    `kotlin-dsl`
+//    `kotlin-dsl`
+//    id("org.gradle.kotlin.kotlin-dsl")
     id("my-plugin")
 }
 
 dependencies {
 
-    val platformVersion = "0.3.3+18"
+    val platformVersion = "0.3.3+19"
     implementation(platform("kotlin.graphics.platform:plugin:$platformVersion"))
 
     //    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin")

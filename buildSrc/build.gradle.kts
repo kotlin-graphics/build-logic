@@ -1,4 +1,3 @@
-
 plugins {
     `kotlin-dsl`
 }
@@ -13,6 +12,6 @@ dependencies {
     val magikVersion = "0.1.9"
     implementation("elect86.magik:elect86.magik.gradle.plugin:$magikVersion")
 
-    val kotlinVersion = "1.5.30"
-    implementation("org.jetbrains.kotlin.jvm:org.jetbrains.kotlin.jvm.gradle.plugin:$kotlinVersion")
+    implementation("org.gradle.kotlin:gradle-kotlin-dsl-plugins:${org.gradle.kotlin.dsl.support.expectedKotlinDslPluginsVersion}")
+//    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:$embeddedKotlinVersion")
 }
