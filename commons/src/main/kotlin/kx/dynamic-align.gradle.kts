@@ -58,10 +58,6 @@ val lockfile: String = configurations.run {
     }
 }
 
-val dynamicAlignVerbose: Boolean? by project
-println(dynamicAlignVerbose)
-println(lockfile)
-
 dependencies {
     //    implementation(platform("kotlin.graphics.platform:source:0.3.3+18"))
     //    implementation(group = "kotlin.graphics.platform" , name = "source", version = "0.3.3+18", classifier = "lockfile", ext = "txt")
@@ -71,7 +67,7 @@ dependencies {
     project.dependencies {
         constraints {
             for (line in lines) {
-                if(dynamicAlignVerbose == true)
+                if (System.getProperty("dynamicAlignVerbose").toBoolean())
                     println("api($line)")
                 add("api", line)
             }
