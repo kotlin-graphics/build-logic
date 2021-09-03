@@ -1,8 +1,8 @@
 import magik.github
 
 plugins {
-//    id("org.gradle.kotlin.kotlin-dsl")
-    //    kotlin("jvm")// version "1.5.30"
+    id("org.gradle.kotlin.kotlin-dsl")
+    kotlin("jvm")
     id("elect86.magik")
     `maven-publish`
     `java-library`
@@ -27,6 +27,7 @@ publishing {
             //                url = uri("$rootDir/prova")
             //            }
             github { domain = "kotlin-graphics/mary" }
+            mavenLocal()
         }
     }
 }

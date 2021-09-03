@@ -11,12 +11,12 @@ rootProject.name = "build-logic"
 
 gradle.rootProject {
     group = "kotlin.graphics.build-logic"
-    version = "0.7.3+18"
+    version = "0.7.3+35"
 }
 
 include("commons")
 include("utils")
-include("dynamic-align")
+//include("dynamic-align")
 //include("docs")
 
 //includeBuild("../magik")
