@@ -61,10 +61,10 @@ java.registerFeature("jdk8") {
     capability(group.toString(), name, version.toString())
 }
 
+val moduleName = "$group.$name"
+
 configureCompileVersion(jdk8, 8)
 configureCompileVersion(jdk11, 11)
-
-val moduleName = "$group.$name"
 
 fun configureCompileVersion(set: SourceSet, jdkVersion: Int) {
     tasks {
@@ -72,27 +72,42 @@ fun configureCompileVersion(set: SourceSet, jdkVersion: Int) {
         named<KotlinCompile>(set.compileKotlinTaskName) {
             targetCompatibility = target
             sourceCompatibility = target
+            //            println("$name, ${set.compileKotlinTaskName}, $target")
             kotlinOptions {
-//                println("${set.compileKotlinTaskName}, $target")
                 jvmTarget = target
                 freeCompilerArgs += listOf("-Xinline-classes", "-Xopt-in=kotlin.RequiresOptIn")
             }
-            source = sourceSets.main.get().kotlin
+            source = set.kotlin
+            //            println(source.files)
         }
         named<JavaCompile>(set.compileJavaTaskName) {
-//            println("${set.compileJavaTaskName}, $target")
+            //            println("$name, ${set.compileJavaTaskName}, $target")
             targetCompatibility = target
             sourceCompatibility = target
             modularity.inferModulePath.set(jdkVersion >= 9)
+            //            println("modular: ${modularity.inferModulePath.get()}")
             javaCompiler.set(project.javaToolchains.compilerFor {
                 languageVersion.set(JavaLanguageVersion.of(jdkVersion))
             }.get())
             source = set.allJava
+            //            println(source.files)
             if (jdkVersion >= 9)
                 options.compilerArgs = listOf("--patch-module", "$moduleName=${set.output.asPath}")
         }
         withType<Test> { useJUnitPlatform() }
     }
+}
+
+// configure compileTestKotlin
+tasks.compileTestKotlin {
+    targetCompatibility = "11"
+    sourceCompatibility = "11"
+    kotlinOptions {
+        jvmTarget = "11"
+        freeCompilerArgs += listOf("-Xinline-classes", "-Xopt-in=kotlin.RequiresOptIn")
+    }
+    source = sourceSets.test.get().allSource
+    //        println(source.files)
 }
 
 configurations {
