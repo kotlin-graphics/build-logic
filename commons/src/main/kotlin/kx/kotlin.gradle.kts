@@ -69,30 +69,39 @@ configureCompileVersion(jdk11, 11)
 fun configureCompileVersion(set: SourceSet, jdkVersion: Int) {
     tasks {
         val target = if (jdkVersion == 8) "1.8" else jdkVersion.toString()
+        val compiler = project.javaToolchains.compilerFor {
+            languageVersion.set(JavaLanguageVersion.of(jdkVersion))
+        }.get()
         named<KotlinCompile>(set.compileKotlinTaskName) {
             targetCompatibility = target
             sourceCompatibility = target
-            //            println("$name, ${set.compileKotlinTaskName}, $target")
+//            println("$name, ${set.compileKotlinTaskName}, $target")
             kotlinOptions {
+                jdkHome = compiler.metadata.installationPath.asFile.absolutePath
+//                println(jdkHome)
                 jvmTarget = target
                 freeCompilerArgs += listOf("-Xinline-classes", "-Xopt-in=kotlin.RequiresOptIn")
+//                classpath = files()
+//                println(classpath.files)
             }
             source = set.kotlin
-            //            println(source.files)
+//            println(source.files)
         }
         named<JavaCompile>(set.compileJavaTaskName) {
-            //            println("$name, ${set.compileJavaTaskName}, $target")
+//            println("$name, ${set.compileJavaTaskName}, $target")
             targetCompatibility = target
             sourceCompatibility = target
             modularity.inferModulePath.set(jdkVersion >= 9)
-            //            println("modular: ${modularity.inferModulePath.get()}")
-            javaCompiler.set(project.javaToolchains.compilerFor {
-                languageVersion.set(JavaLanguageVersion.of(jdkVersion))
-            }.get())
+//            println("modular: ${modularity.inferModulePath.get()}")
+            javaCompiler.set(compiler)
             source = set.allJava
-            //            println(source.files)
-            if (jdkVersion >= 9)
+//            println(source.files)
+//            println(moduleName)
+            if (jdkVersion >= 9) {
                 options.compilerArgs = listOf("--patch-module", "$moduleName=${set.output.asPath}")
+//                println(set.output.asPath)
+            }
+//            println(classpath.files)
         }
         withType<Test> { useJUnitPlatform() }
     }
