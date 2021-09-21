@@ -46,7 +46,6 @@ val SourceSet.kotlin: SourceDirectorySet
     get() = project.extensions.getByType<KotlinJvmProjectExtension>().sourceSets.getByName(name).kotlin
 
 val jdk11 = sourceSets.main.get()
-val jdk17 = sourceSets.main.get()
 
 val jdk8 = sourceSets.create("jdk8") {
     java.setSrcDirs(emptySet<File>())
