@@ -11,7 +11,7 @@ rootProject.name = "build-logic"
 
 gradle.rootProject {
     group = "kotlin.graphics.build-logic"
-    version = "0.7.3+41"
+    version = "0.7.3+42"
 }
 
 include("commons")
