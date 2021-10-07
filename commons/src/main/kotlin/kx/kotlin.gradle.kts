@@ -85,7 +85,7 @@ fun configureCompileVersion(set: SourceSet, jdkVersion: Int) {
                 //                println(classpath.files)
             }
             source = set.kotlin
-            if (jdkVersion < 9)
+//            if (jdkVersion < 9)
                 setExcludes(listOf("module-info.java"))
             //            println(source.files)
         }
@@ -103,7 +103,7 @@ fun configureCompileVersion(set: SourceSet, jdkVersion: Int) {
                 options.compilerArgs = listOf("--patch-module", "$moduleName=${set.output.asPath}")
                 //                println(set.output.asPath)
             }
-            if (jdkVersion < 9)
+//            if (jdkVersion < 9)
                 setExcludes(listOf("module-info.java"))
             //            println(classpath.files)
         }

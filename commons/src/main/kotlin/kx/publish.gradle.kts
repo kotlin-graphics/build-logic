@@ -57,7 +57,7 @@ publishing {
 //        println(ver)
         from(components["java"])
         suppressPomMetadataWarningsFor("runtimeElements")
-        addSnapshotPublication()
+//        addSnapshotPublication()
     }
     repositories {
         github {
