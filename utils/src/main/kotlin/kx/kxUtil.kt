@@ -42,15 +42,15 @@ object KxProject {
         override val name = "uno"
 
         object awt : KxSingleProjectInterface {
-            override val name = "awt"
+            override val name = "uno-awt"
         }
 
         object core : KxSingleProjectInterface {
-            override val name = "core"
+            override val name = "uno-core"
         }
 
         object vk : KxSingleProjectInterface {
-            override val name = "vk"
+            override val name = "uno-vk"
         }
 
         override val modules: List<KxSingleProjectInterface> = listOf(awt, core, vk)
@@ -60,23 +60,23 @@ object KxProject {
         override val name = "imgui"
 
         object core : KxSingleProjectInterface {
-            override val name = "core"
+            override val name = "imgui-core"
         }
 
         object gl : KxSingleProjectInterface {
-            override val name = "gl"
+            override val name = "imgui-gl"
         }
 
         object glfw : KxSingleProjectInterface {
-            override val name = "glfw"
+            override val name = "imgui-glfw"
         }
 
         object openjfx : KxSingleProjectInterface {
-            override val name = "openjfx"
+            override val name = "imgui-openjfx"
         }
 
         object vk : KxSingleProjectInterface {
-            override val name = "vk"
+            override val name = "imgui-vk"
         }
 
         override val modules: List<KxSingleProjectInterface> = listOf(uno.awt, uno.core, uno.vk)
