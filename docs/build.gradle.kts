@@ -3,7 +3,7 @@ import org.gradle.kotlin.dsl.*
 
 dependencies {
 
-    val platformVersion = "0.3.3+23"
+    val platformVersion = "0.3.3+24"
     "implementation"(platform("kotlin.graphics:platform-plugin:$platformVersion"))
 
     "implementation"("org.jetbrains.dokka:dokka-gradle-plugin")
