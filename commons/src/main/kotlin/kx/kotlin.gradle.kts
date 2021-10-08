@@ -24,7 +24,7 @@ dependencies {
     implementation(platform("kotlin.graphics:platform-source:$platformVersion"))
     implementation(kotlin("stdlib-jdk8"))
 
-    testImplementation(platform("kotlin.graphics.platform:test:$platformVersion"))
+    testImplementation(platform("kotlin.graphics:platform-test:$platformVersion"))
     testImplementation("io.kotest:kotest-runner-junit5")
     testImplementation("io.kotest:kotest-assertions-core")
 }
