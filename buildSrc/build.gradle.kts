@@ -12,8 +12,8 @@ repositories {
 
 dependencies {
 
-    val platformVersion = "0.3.3+22"
-    implementation(platform("kotlin.graphics.platform:plugin:$platformVersion"))
+    val platformVersion = "0.3.3+23"
+    implementation(platform("kotlin.graphics:platform-plugin:$platformVersion"))
 
     implementation("elect86.magik:elect86.magik.gradle.plugin")
 

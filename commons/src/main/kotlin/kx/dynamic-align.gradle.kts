@@ -57,7 +57,7 @@ dependencies {
 
     val lockfile: String = configurations.run {
         named<Configuration>("implementation").get().run {
-            dependencies.first { it.group == "kotlin.graphics.platform" && it.name == "source" }.run {
+            dependencies.first { it.group == "kotlin.graphics" && it.name == "platform-source" }.run {
                 val domain = "https://raw.githubusercontent.com/kotlin-graphics/mary/master"
                 // kotlin/graphics/platform/source/x.x.x/source-x.x.x-lockfile.txt
                 val file = "${group!!.split('.').joinToString("/")}/$name/${version!!}/$name-${version!!}-lockfile.txt"

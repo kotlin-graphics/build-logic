@@ -19,9 +19,9 @@ group = rootProject.group
 
 dependencies {
 
-    val platformVersion = "0.3.3+22"
+    val platformVersion = "0.3.3+23"
 
-    implementation(platform("kotlin.graphics.platform:source:$platformVersion"))
+    implementation(platform("kotlin.graphics:platform-source:$platformVersion"))
     implementation(kotlin("stdlib-jdk8"))
 
     testImplementation(platform("kotlin.graphics.platform:test:$platformVersion"))
