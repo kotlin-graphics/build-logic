@@ -51,13 +51,14 @@ plugins {
 
 publishing {
     publications.createGithubPublication {
-        //        artifactId = "${rootProject.name}-${project.name}"
+        if (project != rootProject)
+            artifactId = "${rootProject.name}-${project.name}"
         //        version = rootProject.version
-//        println(artifactId)
-//        println(ver)
+        //        println(artifactId)
+        //        println(ver)
         from(components["java"])
         suppressPomMetadataWarningsFor("runtimeElements")
-//        addSnapshotPublication()
+        //        addSnapshotPublication()
     }
     repositories {
         github {
