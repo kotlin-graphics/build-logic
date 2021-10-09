@@ -61,6 +61,10 @@ publishing {
         //        addSnapshotPublication()
     }
     repositories {
+//        maven {
+//            name = "repo"
+//            url = uri("$rootDir/repo")
+//        }
         github {
             domain = "kotlin-graphics/mary"
         }

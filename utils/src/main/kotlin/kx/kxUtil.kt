@@ -123,7 +123,7 @@ private fun DependencyHandler.implementation(test: Boolean, projects: Array<out 
             is KxSingleProjectInterface -> add(config, "$group:${project.name}")
             is KxMultiProjectInterface ->
                 for (module in project.modules)
-                    add(config, "$group.${project.name}:${module.name}")
+                    add(config, "$group:${project.name}-${module.name}")
         }
 }
 
