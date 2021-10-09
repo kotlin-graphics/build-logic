@@ -63,9 +63,9 @@ java.registerFeature("jdk8") {
 
 val moduleName = when(project) {
     rootProject -> "$group.$name"
-    else -> "$group.${rootProject.name}-$name"
+    else -> "$group.${rootProject.name}.$name"
 }
-//println(moduleName)
+//println("moduleName=$moduleName")
 
 configureCompileVersion(jdk8, 8)
 configureCompileVersion(jdk11, 11)
