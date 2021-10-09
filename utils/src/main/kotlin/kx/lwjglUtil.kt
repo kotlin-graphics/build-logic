@@ -79,10 +79,10 @@ object Lwjgl {
     enum class Preset(val modules: Array<Modules>) {
         none(emptyArray<Modules>()),
         everything(Modules.values()),
-        gettingStarted(arrayOf(assimp, bgfx, glfw, nanovg, nuklear, openal, opengl, par, stb, vulkan)),
-        minimalOpenGL(arrayOf(assimp, glfw, openal, opengl, stb)),
-        minimalOpenGLES(arrayOf(assimp, egl, glfw, openal, opengles, stb)),
-        minimalVulkan(arrayOf(assimp, glfw, openal, stb, vulkan))
+        gettingStarted(arrayOf(Modules.assimp, bgfx, glfw, nanovg, nuklear, openal, opengl, par, stb, vulkan)),
+        minimalOpenGL(arrayOf(Modules.assimp, glfw, openal, opengl, stb)),
+        minimalOpenGLES(arrayOf(Modules.assimp, egl, glfw, openal, opengles, stb)),
+        minimalVulkan(arrayOf(Modules.assimp, glfw, openal, stb, vulkan))
     }
 
     val natives = "natives-" + when (current()) {

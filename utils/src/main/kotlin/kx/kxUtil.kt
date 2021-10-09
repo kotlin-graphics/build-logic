@@ -1,101 +1,60 @@
 package kx
 
-import org.gradle.api.artifacts.Dependency
 import org.gradle.api.artifacts.dsl.DependencyHandler
+import kotlin.properties.PropertyDelegateProvider
+import kotlin.properties.ReadOnlyProperty
 
-interface KxProjectInterface {
+interface KxProject {
     val name: String
 }
 
-interface KxSingleProjectInterface : KxProjectInterface
-interface KxMultiProjectInterface : KxProjectInterface {
-    val modules: List<KxSingleProjectInterface>
+abstract class KxMultiProject : KxProject {
+    val modules = ArrayList<KxProject>()
+
+    fun project() = PropertyDelegateProvider { _: Any?, prop ->
+        val project = object : KxProject {
+            override val name = "${this@KxMultiProject.name}-${prop.name}"
+        }
+        modules += project
+        ReadOnlyProperty<Any?, KxProject> { _, _ -> project }
+    }
 }
 
-object KxProject {
-
-    object kool : KxSingleProjectInterface {
-        override val name = "kool"
+fun project() = PropertyDelegateProvider { _: Any?, prop ->
+    val project = object : KxProject {
+        override val name = prop.name
     }
-
-    object unsigned : KxSingleProjectInterface {
-        override val name = "unsigned"
-    }
-
-    object glm : KxSingleProjectInterface {
-        override val name = "glm"
-    }
-
-    object gli : KxSingleProjectInterface {
-        override val name = "gli"
-    }
-
-    object gln : KxSingleProjectInterface {
-        override val name = "gln"
-    }
-
-    object vkk : KxSingleProjectInterface {
-        override val name = "vkk"
-    }
-
-    object uno : KxMultiProjectInterface {
-        override val name = "uno"
-
-        object awt : KxSingleProjectInterface {
-            override val name = "uno-awt"
-        }
-
-        object core : KxSingleProjectInterface {
-            override val name = "uno-core"
-        }
-
-        object vk : KxSingleProjectInterface {
-            override val name = "uno-vk"
-        }
-
-        override val modules: List<KxSingleProjectInterface> = listOf(awt, core, vk)
-    }
-
-    object imgui : KxMultiProjectInterface {
-        override val name = "imgui"
-
-        object core : KxSingleProjectInterface {
-            override val name = "imgui-core"
-        }
-
-        object gl : KxSingleProjectInterface {
-            override val name = "imgui-gl"
-        }
-
-        object glfw : KxSingleProjectInterface {
-            override val name = "imgui-glfw"
-        }
-
-        object openjfx : KxSingleProjectInterface {
-            override val name = "imgui-openjfx"
-        }
-
-        object vk : KxSingleProjectInterface {
-            override val name = "imgui-vk"
-        }
-
-        override val modules: List<KxSingleProjectInterface> = listOf(uno.awt, uno.core, uno.vk)
-    }
-
-    object assimp : KxSingleProjectInterface {
-        override val name = "assimp"
-    }
-
-    object openvr : KxSingleProjectInterface {
-        override val name = "openvr"
-    }
+    ReadOnlyProperty<Any?, KxProject> { _, _ -> project }
 }
+
+val kool by project()
+val unsigned by project()
+val glm by project()
+val gli by project()
+val gln by project()
+val vkk by project()
+object uno : KxMultiProject() {
+    override val name = "uno"
+    val awt by project()
+    val core by project()
+    val vk by project()
+}
+object imgui : KxMultiProject() {
+    override val name = "imgui"
+    val core by project()
+    val gl by project()
+    val glfw by project()
+    val openjfx by project()
+    val vk by project()
+}
+val assimp by project()
+val openvr by project()
 
 //sealed interface Expr
 
-fun DependencyHandler.implementation(vararg projects: KxProjectInterface) = implementation(false, projects)
+fun DependencyHandler.implementation(vararg projects: KxProject) = implementation(false, projects)
 
-fun DependencyHandler.testImplementation(vararg projects: KxProjectInterface) = implementation(true, projects)
+fun DependencyHandler.testImplementation(vararg projects: KxProject) = implementation(true, projects)
 
 //fun DependencyHandler.kxImplementation(vararg projects: KxProject) = add(false, projects)
 //fun DependencyHandler.kxTestImplementation(vararg projects: KxProject) = add(true, projects)
@@ -115,15 +74,15 @@ fun DependencyHandler.testImplementation(vararg projects: KxProjectInterface) = 
 //private fun DependencyHandler.implementation(test: Boolean, artifact: String): Dependency? =
 //    add(if (test) "testImplementation" else "implementation", "kotlin.graphics:$artifact") // { exclude("kx.platform") }
 
-private fun DependencyHandler.implementation(test: Boolean, projects: Array<out KxProjectInterface>) {
+private fun DependencyHandler.implementation(test: Boolean, projects: Array<out KxProject>) {
     val config = if (test) "testImplementation" else "implementation"
     val group = "kotlin.graphics"
     for (project in projects)
         when (project) {
-            is KxSingleProjectInterface -> add(config, "$group:${project.name}")
-            is KxMultiProjectInterface ->
+            is KxMultiProject ->
                 for (module in project.modules)
-                    add(config, "$group:${project.name}-${module.name}")
+                    add(config, "$group:${module.name}")
+            else -> add(config, "$group:${project.name}")
         }
 }
 
