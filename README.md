@@ -46,7 +46,7 @@ plugins {
 }
 ```
 
-- #### kx.kotlin
+- ### kx.kotlin
     Provide all the basic settings for compiling the principal variant with jdk11 using the modular structure (Jigsaw) and adding a `jdk8` variant compiled with the corresponding jdk8
 - ### dokka
     Inactive for the moment, I need to fix some other stuff first to make sure it plays nice
