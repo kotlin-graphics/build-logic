@@ -50,15 +50,18 @@ plugins {
 //}
 
 publishing {
-    publications.createGithubPublication {
-        if (project != rootProject)
-            artifactId = "${rootProject.name}-${project.name}"
-        //        version = rootProject.version
-        //        println(artifactId)
-        //        println(ver)
-        from(components["java"])
-        suppressPomMetadataWarningsFor("runtimeElements")
-        //        addSnapshotPublication()
+    publications {
+        createGithubPublication {
+            if (project != rootProject)
+                artifactId = "${rootProject.name}-${project.name}"
+            //        version = rootProject.version
+            //        println(artifactId)
+            //        println(ver)
+            from(components["java"])
+            suppressPomMetadataWarningsFor("runtimeElements")
+            suppressPomMetadataWarningsFor("variant")
+            //        addSnapshotPublication()
+        }
     }
     repositories {
 //        maven {

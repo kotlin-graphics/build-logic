@@ -14,8 +14,7 @@ gradle.rootProject {
     version = "0.7.3+51"
 }
 
-include("commons")
-include("utils")
+include("commons", "utils", "kotlin")
 //include("dynamic-align")
 //include("docs")
 
