@@ -6,7 +6,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     `java-library`
     kotlin("jvm")
-    id("com.github.johnrengelman.shadow")
+//    id("com.github.johnrengelman.shadow")
 }
 
 repositories {
