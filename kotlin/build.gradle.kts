@@ -14,7 +14,7 @@ plugins {
     id("com.gradle.plugin-publish") version "0.14.0"
 }
 
-version = rootProject.version
+version = "0.0.1"//rootProject.version
 group = rootProject.group
 
 
