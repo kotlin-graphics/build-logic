@@ -42,8 +42,8 @@ repositories {
 
 gradlePlugin {
     // Define the plugin
-    plugins.named("kx.kotlin") {
-        id = "kx.kotlin"
+    plugins.named("io.github.kotlin.graphics.kotlin") {
+        id = "io.github.kotlin.graphics.kotlin"
         displayName = "Apply general kotlin configuration for kx projects"
         description = "This setups the main variant for jdk11 and the jdk8 variant and brings source and test platform dependencies"
     }
