@@ -1,5 +1,3 @@
-package io.github.kotlin.graphics
-
 import org.gradle.kotlin.dsl.*
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
@@ -15,7 +13,6 @@ repositories {
     maven("https://raw.githubusercontent.com/kotlin-graphics/mary/master")
 }
 
-version = rootProject.version
 group = rootProject.group
 
 dependencies {

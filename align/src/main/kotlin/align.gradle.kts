@@ -1,10 +1,7 @@
-package kx
-
 import java.net.URL
 
 plugins {
     `java-library`
-    kotlin("jvm")
 }
 
 //abstract class DynamicAlignExtension {
@@ -48,7 +45,7 @@ plugins {
 //}
 
 val verbose: Boolean
-    get() = System.getProperty("dynamicAlignVerbose").toBoolean()
+    get() = System.getProperty("alignVerbose").toBoolean()
 
 dependencies {
     //    implementation(platform("kotlin.graphics.platform:source:0.3.3+18"))

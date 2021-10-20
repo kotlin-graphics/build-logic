@@ -2,31 +2,16 @@ import magik.github
 
 plugins {
     id("org.gradle.kotlin.kotlin-dsl")
-    id("elect86.magik")
     `maven-publish`
-    `java-library`
+    `java-gradle-plugin`
+    id("com.gradle.plugin-publish")
+    id("elect86.magik")
 }
 
-version = rootProject.version
 group = rootProject.group
 
 repositories {
     mavenCentral()
     gradlePluginPortal()
     github("kotlin-graphics/mary")
-}
-
-//magik { commitWithChanges.set(true) }
-
-publishing {
-    publications {
-        repositories {
-            //            maven {
-            //                name = "prova"
-            //                url = uri("$rootDir/prova")
-            //            }
-            github { domain = "kotlin-graphics/mary" }
-            mavenLocal()
-        }
-    }
 }

@@ -1,11 +1,9 @@
-package kx
-
 //import magik.addSnapshotPublication
-//import magik.createGithubPublication
-//import magik.github
+import magik.createGithubPublication
+import magik.github
 
 plugins {
-//    id("elect86.magik")
+    id("elect86.magik")
     `maven-publish`
 }
 

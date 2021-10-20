@@ -1,16 +1,20 @@
 plugins {
-//    `kotlin-dsl`
-//    id("org.gradle.kotlin.kotlin-dsl")
     id("my-plugin")
 }
-//
-//repositories {
-//    maven("https://raw.githubusercontent.com/kotlin-graphics/mary/master")
-//}
-//
-//dependencies {
-//
-//    val platformVersion = "0.3.3+17"
-//    // it's called platform, but it's a plugin instead!
-//    implementation("kx.source-dynamic:kx.source-dynamic.gradle.plugin:$platformVersion")
-//}
+
+version = "0.0.1"
+
+gradlePlugin {
+    // Define the plugin
+    plugins.named("utils") {
+        id = "io.github.kotlin-graphics.utils"
+        displayName = "Import additional configuration accessors to easier kx importing"
+        description = "This setups brings into the classpath additional wrapper to import kx project conveniently"
+    }
+}
+
+pluginBundle {
+    website = "https://github.com/kotlin-graphics/build-logic"
+    vcsUrl = "https://github.com/kotlin-graphics/build-logic"
+    tags = listOf("github", "kotlin-graphics", "kx", "graphics", "3d-realtime-graphics", "kotlin", "utils", "implementation", "api")
+}

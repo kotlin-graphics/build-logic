@@ -18,5 +18,6 @@ dependencies {
     implementation("elect86.magik:elect86.magik.gradle.plugin")
 
     implementation("org.gradle.kotlin:gradle-kotlin-dsl-plugins:$expectedKotlinDslPluginsVersion")
-    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:$embeddedKotlinVersion")
+
+    implementation("com.gradle.plugin-publish:com.gradle.plugin-publish.gradle.plugin:0.16.0")
 }
