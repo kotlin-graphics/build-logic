@@ -1,4 +1,3 @@
-
 pluginManagement {
     repositories {
         mavenCentral()
@@ -10,12 +9,10 @@ pluginManagement {
 rootProject.name = "build-logic"
 
 gradle.rootProject {
-    group = "kotlin.graphics.build-logic"
-    version = "0.7.3+52"
+    group = "io.github.kotlin-graphics"
 }
 
-include("commons")
-include("utils")
+include("utils", "base", "align", "publish")
 //include("dynamic-align")
 //include("docs")
 
