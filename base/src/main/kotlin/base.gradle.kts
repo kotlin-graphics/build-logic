@@ -79,12 +79,15 @@ fun configureCompileVersion(set: SourceSet, jdkVersion: Int) {
             sourceCompatibility = target
             //            println("$name, ${set.compileKotlinTaskName}, $target")
             kotlinOptions {
-                jdkHome = compiler.metadata.installationPath.asFile.absolutePath
+//                jdkHome = compiler.metadata.installationPath.asFile.absolutePath
                 //                println(jdkHome)
                 jvmTarget = target
                 freeCompilerArgs += listOf("-Xinline-classes", "-Xopt-in=kotlin.RequiresOptIn")
                 //                classpath = files()
                 //                println(classpath.files)
+            }
+            kotlin.jvmToolchain {
+                (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(jdkVersion))
             }
             source = set.kotlin
             if (jdkVersion < 9)
