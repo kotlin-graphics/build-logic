@@ -12,7 +12,7 @@ repositories {
 
 dependencies {
 
-    val platformVersion = "0.3.4"
+    val platformVersion = "0.3.5"
     implementation(platform("kotlin.graphics:platform-plugin:$platformVersion"))
 
     implementation("elect86.magik:elect86.magik.gradle.plugin")
@@ -20,4 +20,6 @@ dependencies {
     implementation("org.gradle.kotlin:gradle-kotlin-dsl-plugins:$expectedKotlinDslPluginsVersion")
 
     implementation("com.gradle.plugin-publish:com.gradle.plugin-publish.gradle.plugin:0.16.0")
+
+    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:$embeddedKotlinVersion")
 }

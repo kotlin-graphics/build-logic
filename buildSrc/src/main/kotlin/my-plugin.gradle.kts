@@ -1,4 +1,5 @@
 import magik.github
+import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
 
 plugins {
     id("org.gradle.kotlin.kotlin-dsl")
@@ -14,4 +15,8 @@ repositories {
     mavenCentral()
     gradlePluginPortal()
     github("kotlin-graphics/mary")
+}
+
+project.extensions.getByType<KotlinJvmProjectExtension>().jvmToolchain {
+    (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(8))
 }
