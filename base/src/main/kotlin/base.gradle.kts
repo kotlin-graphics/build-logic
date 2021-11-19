@@ -1,11 +1,12 @@
 import org.gradle.kotlin.dsl.*
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.gradle.tasks.UsesKotlinJavaToolchain
 
 plugins {
     `java-library`
     kotlin("jvm")
-//    id("com.github.johnrengelman.shadow")
+    //    id("com.github.johnrengelman.shadow")
 }
 
 repositories {
@@ -59,7 +60,7 @@ java.registerFeature("jdk8") {
     capability(group.toString(), name, version.toString())
 }
 
-val moduleName = when(project) {
+val moduleName = when (project) {
     rootProject -> "$group.$name"
     else -> "$group.${rootProject.name}.$name"
 }
@@ -79,16 +80,19 @@ fun configureCompileVersion(set: SourceSet, jdkVersion: Int) {
             sourceCompatibility = target
             //            println("$name, ${set.compileKotlinTaskName}, $target")
             kotlinOptions {
-//                jdkHome = compiler.metadata.installationPath.asFile.absolutePath
+                //                jdkHome = compiler.metadata.installationPath.asFile.absolutePath
                 //                println(jdkHome)
                 jvmTarget = target
                 freeCompilerArgs += listOf("-Xinline-classes", "-Xopt-in=kotlin.RequiresOptIn")
                 //                classpath = files()
                 //                println(classpath.files)
             }
-            kotlin.jvmToolchain {
-                (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(jdkVersion))
-            }
+            val service = project.extensions.getByType<JavaToolchainService>()
+            val customLauncher = service.launcherFor { languageVersion.set(JavaLanguageVersion.of(jdkVersion)) }
+            kotlinJavaToolchain.toolchain.use(customLauncher)
+            //            kotlin.jvmToolchain {
+            //                (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(jdkVersion))
+            //            }
             source = set.kotlin
             if (jdkVersion < 9)
                 setExcludes(listOf("module-info.java"))
