@@ -4,7 +4,7 @@ plugins {
 
 dependencies {
 
-    val platformVersion = "0.3.5"
+    val platformVersion = "0.3.6"
     implementation(platform("kotlin.graphics:platform-plugin:$platformVersion"))
 
     //    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin")
@@ -15,7 +15,7 @@ dependencies {
     implementation("elect86.magik:elect86.magik.gradle.plugin")
 }
 
-version = "0.0.5"
+version = "0.0.6"
 
 gradlePlugin {
     // Define the plugin
