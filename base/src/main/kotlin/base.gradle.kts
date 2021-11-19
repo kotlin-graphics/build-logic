@@ -121,15 +121,21 @@ fun configureCompileVersion(set: SourceSet, jdkVersion: Int) {
 }
 
 // configure compileTestKotlin
-tasks.compileTestKotlin {
-    targetCompatibility = "11"
-    sourceCompatibility = "11"
-    kotlinOptions {
-        jvmTarget = "11"
-        freeCompilerArgs += listOf("-Xinline-classes", "-Xopt-in=kotlin.RequiresOptIn")
+tasks {
+    compileTestKotlin {
+        targetCompatibility = "11"
+        sourceCompatibility = "11"
+        kotlinOptions {
+            jvmTarget = "11"
+            freeCompilerArgs += listOf("-Xinline-classes", "-Xopt-in=kotlin.RequiresOptIn")
+        }
+        source = sourceSets.test.get().allSource
+        //        println(source.files)
     }
-    source = sourceSets.test.get().allSource
-    //        println(source.files)
+    compileTestJava {
+        targetCompatibility = "11"
+        sourceCompatibility = "11"
+    }
 }
 
 configurations {
