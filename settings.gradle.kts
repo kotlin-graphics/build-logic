@@ -13,7 +13,4 @@ gradle.rootProject {
 }
 
 include("utils", "base", "align", "publish")
-//include("dynamic-align")
 //include("docs")
-
-//includeBuild("../magik")

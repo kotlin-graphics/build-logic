@@ -2,11 +2,11 @@ plugins {
     id("my-plugin")
 }
 
-version = "0.0.1"
+version = "0.0.2"
 
 dependencies {
 
-    val platformVersion = "0.3.3+24"
+    val platformVersion = "0.3.4"
     implementation(platform("kotlin.graphics:platform-plugin:$platformVersion"))
 
     //    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin")
@@ -23,7 +23,7 @@ gradlePlugin {
     plugins.named("align") {
         id = "io.github.kotlin-graphics.align"
         displayName = "Dynamic alignment for importing kx projects"
-        description = "This plugins performs a dynamic alignment on ::appy based on the current version inside the platform lockfile"
+        description = "This plugins performs a dynamic alignment based on the current version inside the platform lockfile"
     }
 }
 
