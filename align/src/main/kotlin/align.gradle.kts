@@ -52,27 +52,21 @@ dependencies {
     //    implementation(group = "kotlin.graphics.platform" , name = "source", version = "0.3.3+18", classifier = "lockfile", ext = "txt")
     //    implementation("kotlin.graphics.platform:source:0.3.3+18:lockfile@txt")
 
-    val lockfile: String = configurations.run {
-        named<Configuration>("implementation").get().run {
-            dependencies.first { it.group == "kotlin.graphics" && it.name == "platform-source" }.run {
-                val domain = "https://raw.githubusercontent.com/kotlin-graphics/mary/master"
-                // kotlin/graphics/platform/source/x.x.x/source-x.x.x-lockfile.txt
-                val file = "${group!!.split('.').joinToString("/")}/$name/${version!!}/$name-${version!!}-lockfile.txt"
-                if(verbose) println("$domain/$file")
-                URL("$domain/$file")
-            }.readText()
-        }
+    val lockfile: String = run {
+        val domain = "https://raw.githubusercontent.com/kotlin-graphics/mary/master"
+        val platformVersion = "0.3.6"
+        val file = "kotlin/graphics/platform-source/$platformVersion/platform-source-$platformVersion-lockfile.txt"
+        if (verbose) println("$domain/$file")
+        URL("$domain/$file").readText()
     }
 
-    if(verbose) println(lockfile)
+    if (verbose) println(lockfile)
 
     val lines = lockfile.split('\n').filter { !it.startsWith('#') && it.isNotBlank() }
-    project.dependencies {
-        constraints {
-            for (line in lines) {
-                if (verbose) println("api($line)")
-                add("api", line)
-            }
+    project.dependencies.constraints {
+        for (line in lines) {
+            if (verbose) println("api($line)")
+            add("api", line)
         }
     }
 }
