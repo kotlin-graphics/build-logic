@@ -15,7 +15,7 @@ dependencies {
     implementation("elect86.magik:elect86.magik.gradle.plugin")
 }
 
-version = "0.0.6"
+version = "0.0.7"
 
 gradlePlugin {
     // Define the plugin

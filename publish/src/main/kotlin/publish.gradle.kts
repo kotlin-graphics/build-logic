@@ -56,8 +56,7 @@ publishing {
             //        println(artifactId)
             //        println(ver)
             from(components["java"])
-            suppressPomMetadataWarningsFor("runtimeElements")
-            suppressPomMetadataWarningsFor("variant")
+            suppressAllPomMetadataWarnings()
             //        addSnapshotPublication()
         }
     }
